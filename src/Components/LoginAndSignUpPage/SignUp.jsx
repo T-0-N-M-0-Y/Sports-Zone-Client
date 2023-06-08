@@ -24,20 +24,35 @@ const SignUp = () => {
 
                 updateUserProfile(data.name, data.photo)
                     .then(() => {
-                        reset();
-                        Swal.fire({
-                            title: 'Wellcome To Sports Zone!!!',
-                            showClass: {
-                                popup: 'animate__animated animate__fadeInDown'
+
+                        const userSaved = { name: data.name, email: data.email }
+
+                        fetch('http://localhost:5000/users', {
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json'
                             },
-                            hideClass: {
-                                popup: 'animate__animated animate__fadeOutUp'
-                            }
+                            body: JSON.stringify(userSaved)
                         })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.insertedId) {
+                                    reset();
+                                    Swal.fire({
+                                        title: 'Wellcome To Sports Zone!!!',
+                                        showClass: {
+                                            popup: 'animate__animated animate__fadeInDown'
+                                        },
+                                        hideClass: {
+                                            popup: 'animate__animated animate__fadeOutUp'
+                                        }
+                                    })
+                                }
+                            })
                         navigate('/')
                     })
+                    .catch(error => console.log(error))
             })
-            .catch(err => console.log(err))
     }
 
     return (

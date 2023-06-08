@@ -40,7 +40,7 @@ const Navbar = () => {
                     </div>
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0FvJKoWnnZoq_Sg7TcatuUt_OLjrjlY-dW0FrXdipH-F7UmgFSp2ppnnUp5Fqua8s3Q&usqp=CAU" className="w-24 md:w-44" alt="" />
                 </div>
-                
+
                 <div className="navbar-end">
                     {
                         user ?
