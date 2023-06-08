@@ -15,29 +15,29 @@ const Login = () => {
 
     const { signInWithEmailPass } = useContext(AuthContext);
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit } = useForm();
 
 
     const onSubmit = data => {
         console.log(data);
 
         signInWithEmailPass(data.email, data.password)
-        .then(result => {
-            const user = result.user;
-            console.log(user);
-            Swal.fire({
-                title: 'Login Success',
-                showClass: {
-                    popup: 'animate__animated animate__fadeInDown'
-                },
-                hideClass: {
-                    popup: 'animate__animated animate__fadeOutUp'
-                }
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                Swal.fire({
+                    title: 'Login Success',
+                    showClass: {
+                        popup: 'animate__animated animate__fadeInDown'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__fadeOutUp'
+                    }
+                })
+                navigate(redirectTo, { replace: true });
             })
-            navigate(redirectTo, { replace: true });
-        })
-        .catch(error => console.log(error))
-        
+            .catch(error => console.log(error))
+
     }
 
     return (
@@ -53,7 +53,6 @@ const Login = () => {
                             <span className="label-text">Email</span>
                         </label>
                         <input type="email" {...register("email", { required: true })} placeholder="email" className="input input-bordered" />
-                        {errors.email && <p className="text-red-500">{errors.message}</p>}
                     </div>
                     <div className="form-control">
 
@@ -61,18 +60,17 @@ const Login = () => {
                             <span className="label-text">Password</span>
                         </label>
 
-                        <input type="text" {...register("password", { required: true, minLength: 6, maxLength: 20 })} placeholder="password" className="input input-bordered" />
-                        {errors.password && <p className="text-red-500">{errors.message}</p>}
+                        <input type="password" {...register("password", { required: true, minLength: 6, maxLength: 20 })} placeholder="password" className="input input-bordered" />
 
                     </div>
                     <div className="form-control mt-6">
                         <input className="btn bg-orange-800 text-white hover:bg-orange-500 border-none" type="submit" value="Login" />
                     </div>
                 </form>
-                <div className='flex justify-between items-center px-10'>
+                <div className='mx-10'>
                     <Link to={'/signup'}><p className='text-orange-800'>New here?? Create an Account</p></Link>
-                    <GoGiFa></GoGiFa>
                 </div>
+                <GoGiFa></GoGiFa>
             </div>
         </div>
     );
