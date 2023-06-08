@@ -86,7 +86,7 @@ const SignUp = () => {
                         {errors.password?.type === 'pattern' && <p className="text-red-500">password must have a Capital letter & a Special Charecter</p>}
                     </div>
                     <div className="form-control mt-6">
-                        <input className="btn bg-yellow-600 text-white hover:bg-green-700 border-none" type="submit" value="Sign Up" />
+                        <input className="btn bg-orange-800 text-white hover:bg-orange-500 border-none" type="submit" value="Sign Up" />
                     </div>
                 </form>
                 <GoGiFa></GoGiFa>

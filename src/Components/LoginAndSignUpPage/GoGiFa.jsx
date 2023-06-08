@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
+import { FaFacebook, FaGithub, FaGoogle, FaTwitter } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 
@@ -38,7 +38,8 @@ const GoGiFa = () => {
             <div className="flex justify-end">
                 <Link onClick={handleGoogleSignIn}><FaGoogle className="text-xl"></FaGoogle></Link>
                 <Link><FaFacebook className="mx-5 text-xl"></FaFacebook></Link>
-                <Link><FaGithub className="text-xl"></FaGithub></Link>
+                <Link><FaTwitter className='text-xl'></FaTwitter></Link>
+                <Link><FaGithub className='text-xl ml-5'></FaGithub></Link>
             </div>
         </div>
     );
