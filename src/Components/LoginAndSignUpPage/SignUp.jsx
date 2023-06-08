@@ -1,6 +1,5 @@
 import { Helmet } from "react-helmet-async";
 import { useContext } from "react";
-import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Provider/AuthProvider";
@@ -8,7 +7,7 @@ import GoGiFa from "./GoGiFa";
 
 const SignUp = () => {
 
-    const { createUserForEmailPassLogin, updateUserProfile } = useContext(AuthContext);
+    const { createUserForEmailPassLogin, updateUserProfile, logOut } = useContext(AuthContext);
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
@@ -38,18 +37,12 @@ const SignUp = () => {
                             .then(data => {
                                 if (data.insertedId) {
                                     reset();
-                                    Swal.fire({
-                                        title: 'Wellcome To Sports Zone!!!',
-                                        showClass: {
-                                            popup: 'animate__animated animate__fadeInDown'
-                                        },
-                                        hideClass: {
-                                            popup: 'animate__animated animate__fadeOutUp'
-                                        }
-                                    })
                                 }
                             })
-                        navigate('/')
+                        logOut()
+                            .then(() => { })
+                            .catch(error => console.log(error))
+                        navigate('/login')
                     })
                     .catch(error => console.log(error))
             })
