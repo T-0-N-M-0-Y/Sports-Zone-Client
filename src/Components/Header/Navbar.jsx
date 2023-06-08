@@ -1,14 +1,24 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Navbar = () => {
 
-    const navbarItems = 
-    <>
-        <Link to={'/'}><li className="hover:bg-orange-800 p-3 rounded-lg mr-5">HOME</li></Link>
-        <Link><li className="hover:bg-orange-800 p-3 rounded-lg mr-5">INSTRUCTORS</li></Link>
-        <Link><li className="hover:bg-orange-800 p-3 rounded-lg mr-5">CLASSES</li></Link>
-        <Link><li className="hover:bg-orange-800 p-3 rounded-lg mr-5">DASHBOARD</li></Link>
-    </>
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleSignOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.log(error))
+    }
+
+    const navbarItems =
+        <>
+            <Link to={'/'}><li className="hover:bg-orange-800 p-3 rounded-lg mr-5">HOME</li></Link>
+            <Link><li className="hover:bg-orange-800 p-3 rounded-lg mr-5">INSTRUCTORS</li></Link>
+            <Link><li className="hover:bg-orange-800 p-3 rounded-lg mr-5">CLASSES</li></Link>
+            <Link><li className="hover:bg-orange-800 p-3 rounded-lg mr-5">DASHBOARD</li></Link>
+        </>
 
     return (
         <div>
@@ -30,16 +40,24 @@ const Navbar = () => {
                     </div>
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0FvJKoWnnZoq_Sg7TcatuUt_OLjrjlY-dW0FrXdipH-F7UmgFSp2ppnnUp5Fqua8s3Q&usqp=CAU" className="w-24 md:w-44" alt="" />
                 </div>
-
                 
                 <div className="navbar-end">
-                    <Link className="mr-2 bg-base-800 p-2 lg:p-3 text-white rounded-lg hover:bg-orange-800"> <button>LOGOUT</button></Link>
-                    <Link className="mr-2 bg-base-800 p-2 lg:p-3 text-white rounded-lg hover:bg-orange-800" to={"/login"}> <button>LOGIN</button></Link>
-                    <div className="tooltip tooltip-bottom">
-                        <img className="w-10 h-10 lg:h-14 lg:w-14 rounded-full" src='' referrerPolicy="no-referrer" />
-                    </div>
-                    <Link className="mr-2 bg-base-800 p-2 lg:p-3 text-white rounded-lg hover:bg-orange-800" to={"/signup"}> <button>SIGN UP</button></Link>
+                    {
+                        user ?
+                            <Link onClick={handleSignOut} className="mr-2 bg-base-800 p-2 lg:p-3 text-white rounded-lg hover:bg-orange-800"> <button>LOGOUT</button></Link>
+                            :
+                            <Link className="mr-2 bg-base-800 p-2 lg:p-3 text-white rounded-lg hover:bg-orange-800" to={"/login"}> <button>LOGIN</button></Link>
+                    }
+                    {
+                        user ?
+                            <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
+                                <img className="w-10 h-10 lg:h-14 lg:w-14 rounded-full" src={user.photoURL} referrerPolicy="no-referrer" />
+                            </div>
+                            :
+                            <Link className="mr-2 bg-base-800 p-2 lg:p-3 text-white rounded-lg hover:bg-orange-800" to={"/signup"}> <button>SIGN UP</button></Link>
+                    }
                 </div>
+
             </div>
         </div>
     );

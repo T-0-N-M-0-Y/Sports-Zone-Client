@@ -23,12 +23,12 @@ const Authprovider = ({children}) => {
         return signInWithEmailAndPassword(auth, email, password);
     }
 
-    const signInWithGoogle = () => { //send it to authInfo
+    const signInWithGoogle = () => {
         setLoading(true)
        return signInWithPopup(auth, googleProvider)
     }
 
-    const logOut = () => { //send it to authinfo
+    const logOut = () => {
         setLoading(true);
         return signOut(auth)
     }

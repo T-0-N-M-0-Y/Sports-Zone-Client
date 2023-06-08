@@ -8,7 +8,7 @@ import GoGiFa from "./GoGiFa";
 
 const SignUp = () => {
 
-    const { createUserForEmailPassLogin } = useContext(AuthContext);
+    const { createUserForEmailPassLogin, updateUserProfile } = useContext(AuthContext);
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
@@ -21,19 +21,23 @@ const SignUp = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
-                reset();
-                Swal.fire({
-                    title: 'Wellcome To Sports Zone!!!',
-                    showClass: {
-                        popup: 'animate__animated animate__fadeInDown'
-                    },
-                    hideClass: {
-                        popup: 'animate__animated animate__fadeOutUp'
-                    }
-                })
-                navigate('/')
+
+                updateUserProfile(data.name, data.photo)
+                    .then(() => {
+                        reset();
+                        Swal.fire({
+                            title: 'Wellcome To Sports Zone!!!',
+                            showClass: {
+                                popup: 'animate__animated animate__fadeInDown'
+                            },
+                            hideClass: {
+                                popup: 'animate__animated animate__fadeOutUp'
+                            }
+                        })
+                        navigate('/')
+                    })
             })
-            .catch(error => console.log(error))
+            .catch(err => console.log(err))
     }
 
     return (
