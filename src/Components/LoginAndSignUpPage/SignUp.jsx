@@ -80,9 +80,10 @@ const SignUp = () => {
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
-                        <input type="password" {...register("password", { required: true, minLength: 6, maxLength: 20 })} placeholder="password" className="input input-bordered" />
+                        <input type="password" {...register("password", { required: true, minLength: 6, maxLength: 20, pattern: /^(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z!@#$%^&*\d]+$/ })} placeholder="password" className="input input-bordered" />
                         {errors.password?.type === 'required' && <p className="text-red-500">password is required</p>}
                         {errors.password?.type === 'minLength' && <p className="text-red-500">password must be 6 characters</p>}
+                        {errors.password?.type === 'pattern' && <p className="text-red-500">password must have a Capital letter & a Special Charecter</p>}
                     </div>
                     <div className="form-control mt-6">
                         <input className="btn bg-yellow-600 text-white hover:bg-green-700 border-none" type="submit" value="Sign Up" />
