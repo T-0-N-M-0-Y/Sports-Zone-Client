@@ -18,7 +18,7 @@ const Navbar = () => {
                         {navbarItems}
                     </ul>
                 </div>
-                
+
                 <div className="navbar-center">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -30,6 +30,8 @@ const Navbar = () => {
                     </div>
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0FvJKoWnnZoq_Sg7TcatuUt_OLjrjlY-dW0FrXdipH-F7UmgFSp2ppnnUp5Fqua8s3Q&usqp=CAU" className="w-24 md:w-44" alt="" />
                 </div>
+
+                
                 <div className="navbar-end">
                     <Link className="mr-2 bg-base-800 p-2 lg:p-3 text-white rounded-lg hover:bg-orange-800"> <button>LOGOUT</button></Link>
                     <Link className="mr-2 bg-base-800 p-2 lg:p-3 text-white rounded-lg hover:bg-orange-800" to={"/login"}> <button>LOGIN</button></Link>
