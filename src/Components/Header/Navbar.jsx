@@ -18,6 +18,7 @@ const Navbar = () => {
                         {navbarItems}
                     </ul>
                 </div>
+                
                 <div className="navbar-center">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
