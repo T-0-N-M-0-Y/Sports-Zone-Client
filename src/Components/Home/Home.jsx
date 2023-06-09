@@ -1,15 +1,22 @@
 import { Helmet } from "react-helmet-async";
 import Banner from "./Banner";
+import ClassesSection from "./ClassesSection";
+import Instructors from "./Instructors";
+import Example from "./Example";
+import ContactSection from "./ContactSection";
 
 const Home = () => {
 
     return (
         <div>
             <Helmet>
-                <title>Sports Zone | Login</title>
+                <title>Sports Zone | Home</title>
             </Helmet>
             <Banner></Banner>
-            <h1>This is Home</h1>
+            <Example></Example>
+            <ClassesSection></ClassesSection>
+            <ContactSection></ContactSection>
+            <Instructors></Instructors>
         </div>
     );
 };
