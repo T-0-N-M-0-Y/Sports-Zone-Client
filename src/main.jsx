@@ -13,6 +13,13 @@ import Authprovider from './Provider/AuthProvider.jsx';
 import Login from './Components/LoginAndSignUpPage/Login.jsx';
 import SignUp from './Components/LoginAndSignUpPage/SignUp.jsx';
 
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+
+const queryClient = new QueryClient()
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -40,9 +47,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
       <HelmetProvider>
         <Authprovider>
-          <div>
-            <RouterProvider router={router} />
-          </div>
+          <QueryClientProvider client={queryClient}>
+            <div>
+              <RouterProvider router={router} />
+            </div>
+          </QueryClientProvider>
         </Authprovider>
       </HelmetProvider>
     </React.StrictMode>,

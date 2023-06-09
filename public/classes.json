@@ -1,0 +1,82 @@
+[
+    {
+        "image": "https://t3.ftcdn.net/jpg/00/42/87/12/360_F_42871201_ZnkmmVDckE54IrS6y0S13crH1S6Mgha5.jpg",
+        "name": "Cricket Lessons",
+        "instructor": "Shakib Al Hassan",
+        "availableSeats": 15,
+        "price": 50,
+        "numStudents": 40
+      },
+      {
+        "image": "https://images.freeimages.com/images/previews/505/soccer-ball-waiting-1639510.jpg",
+        "name": "Football Lessons",
+        "instructor": "Sadio mane",
+        "availableSeats": 10,
+        "price": 40,
+        "numStudents": 60
+      },
+      {
+        "image": "https://t4.ftcdn.net/jpg/00/83/86/63/360_F_83866376_1bnVFhX0uPIfuZ1ZSYlfhCsIlHOVPt6G.jpg",
+        "name": "Swimming Lessons",
+        "instructor": "Michael Anderson",
+        "availableSeats": 12,
+        "price": 60,
+        "numStudents": 9
+      },
+      {
+        "image": "https://media.istockphoto.com/id/1171084311/photo/tennis-rackets-and-balls-leaned-against-the-net.jpg?s=612x612&w=0&k=20&c=SnDgfU30k0PMfVjSHTv4umDQWwKtUHJ8AEgofJXg6w4=",
+        "name": "Tennis Fundamentals",
+        "instructor": "Emily Wilson",
+        "availableSeats": 8,
+        "price": 55,
+        "numStudents": 4
+      },
+      {
+        "image": "https://st2.depositphotos.com/4332649/7547/i/600/depositphotos_75474437-stock-photo-crossed-badminton-rackets-with-shuttlecock.jpg",
+        "name": "Badminton Workshop",
+        "instructor": "David Roberts",
+        "availableSeats": 20,
+        "price": 70,
+        "numStudents": 15
+      },
+      {
+        "image": "https://st2.depositphotos.com/4431055/11855/i/450/depositphotos_118552636-stock-photo-volleyball-object-on-background.jpg",
+        "name": "Volleyball Training",
+        "instructor": "Jennifer Thompson",
+        "availableSeats": 14,
+        "price": 45,
+        "numStudents": 10
+      },
+      {
+        "image": "https://techcrunch.com/wp-content/uploads/2019/03/GettyImages-844016022.jpg",
+        "name": "Baseball Skills",
+        "instructor": "Robert Davis",
+        "availableSeats": 10,
+        "price": 50,
+        "numStudents": 8
+      },
+      {
+        "image": "https://www.houstonkarate.org/static/sitefiles/content_slider/pixaba-4082019-slider-mob.jpg",
+        "name": "Karate for Beginners",
+        "instructor": "Amy Lee",
+        "availableSeats": 15,
+        "price": 65,
+        "numStudents": 12
+      },
+      {
+        "image": "https://archershub.com/wp-content/uploads/2018/12/archery-start_900.jpg",
+        "name": "Archery Workshop",
+        "instructor": "Daniel Brown",
+        "availableSeats": 6,
+        "price": 45,
+        "numStudents": 4
+      },
+      {
+        "image": "https://images.pexels.com/photos/3411686/pexels-photo-3411686.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "name": "Basketball",
+        "instructor": "Sophia Anderson",
+        "availableSeats": 18,
+        "price": 55,
+        "numStudents": 14
+      }                                                    
+]
