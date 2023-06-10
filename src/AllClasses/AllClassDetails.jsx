@@ -30,7 +30,7 @@ const AllClassDetails = ({ allclass }) => {
                     if (data.insertedId) {
                         refetch(); //refetch to update the number of items to the cart
                         Swal.fire({
-                            title: 'Added To Cart',
+                            title: 'Class Added',
                             showClass: {
                                 popup: 'animate__animated animate__fadeInDown'
                             },
