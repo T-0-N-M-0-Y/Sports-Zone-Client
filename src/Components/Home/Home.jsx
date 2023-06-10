@@ -13,10 +13,12 @@ const Home = () => {
                 <title>Sports Zone | Home</title>
             </Helmet>
             <Banner></Banner>
-            <Example></Example>
-            <ClassesSection></ClassesSection>
-            <ContactSection></ContactSection>
-            <Instructors></Instructors>
+            <div className="md:mx-10 mx-5">
+                <Example></Example>
+                <ClassesSection></ClassesSection>
+                <ContactSection></ContactSection>
+                <Instructors></Instructors>
+            </div>
         </div>
     );
 };

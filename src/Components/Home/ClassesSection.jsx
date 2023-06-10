@@ -10,8 +10,8 @@ const ClassesSection = () => {
 
     return (
         <div>
-            <h1 className='text-4xl uppercase text-center font-bold my-10'>Popular Classes</h1>
-            <div className="grid grid-cols-6 gap-1">
+            <h1 className='md:text-4xl text-2xl uppercase text-center font-bold my-10'>Popular Classes</h1>
+            <div className="md:grid grid-cols-6 gap-1">
                 {
                     sortClasses.slice(0, 6).map(sortClass => <ShowClasses
                         key={sortClass._id} 

@@ -2,7 +2,7 @@ const Example = () => {
 
     return (
         <div>
-            <div className="grid grid-cols-3 gap-5 mx-20 my-10 text-center">
+            <div className="md:grid grid-cols-3 gap-5 md:mx-20 md:my-10 text-center">
                 <div className="card w-full">
                     <div className="card-body">
                         <h2 className="font-bold text-2xl text-orange-500">Expert Programs</h2>
