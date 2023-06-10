@@ -1,17 +1,21 @@
+import { Helmet } from "react-helmet-async";
 
-const AllInstructors = ({ allInstructor }) => {
+const AllInstructors = ({ instructor }) => {
 
-const {image, name, email} = allInstructor;
+    const { image, name, email } = instructor;
 
     return (
         <div>
-            <div className="hero min-h-screen bg-base-200">
-                <div className="hero-content flex-col lg:flex-row">
-                    <img src={image} className="max-w-sm rounded-lg shadow-2xl" />
-                    <div>
-                        <h1 className="text-5xl font-bold">{name}</h1>
-                        <p className="py-6">{email}</p>
-                        <button className="btn btn-primary">Get Started</button>
+            <Helmet>
+                <title>Sports Zone | Instructors</title>
+            </Helmet>
+            <div className="card w-full bg-base-100 shadow-xl">
+                <figure><img src={image} className="h-96" alt="Shoes" /></figure>
+                <div className="card-body">
+                    <h2 className="card-title">{name}</h2>
+                    <p>{email}</p>
+                    <div className="card-actions justify-start">
+                        <button className="btn bg-orange-500 hover:bg-orange-800 text-white">See CLasses</button>
                     </div>
                 </div>
             </div>

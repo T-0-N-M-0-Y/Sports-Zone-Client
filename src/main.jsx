@@ -13,6 +13,8 @@ import Authprovider from './Provider/AuthProvider.jsx';
 import Login from './Components/LoginAndSignUpPage/Login.jsx';
 import SignUp from './Components/LoginAndSignUpPage/SignUp.jsx';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import InstructorsDetails from './Components/AllInstructors/InstructorsDetails.jsx';
+import AllClasses from './AllClasses/AllClasses.jsx';
 
 const queryClient = new QueryClient()
 
@@ -25,6 +27,14 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "/classes",
+        element: <AllClasses></AllClasses>,
+      },
+      {
+        path: "/instructors",
+        element: <InstructorsDetails></InstructorsDetails>,
       },
       {
         path: "/login",

@@ -6,7 +6,6 @@ const ClassesSection = () => {
     const [classes] = useClasses();
 
     const sortClasses = classes.sort((a, b) => b.numStudents - a.numStudents);
-    console.log(sortClasses);
 
     return (
         <div>

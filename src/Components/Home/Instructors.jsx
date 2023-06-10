@@ -1,5 +1,4 @@
 import useInstructors from "../../Hooks/useInstructors";
-import AllInstructors from "../AllInstructors/AllInstructors";
 import ShowInstructors from "./ShowInstructors";
 
 const Instructors = () => {
