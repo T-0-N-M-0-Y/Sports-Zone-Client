@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { FaAward, FaHome, FaUserGraduate, FaUserSecret, FaUsers } from "react-icons/fa";
+import { FaAward, FaHome, FaPaypal, FaUserGraduate, FaUserSecret, FaUsers } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 
 
@@ -25,6 +25,7 @@ const Dashboard = () => {
                         <ul className="menu p-4 w-80 h-full bg-orange-500 text-white text-xl">
                             <li><NavLink to={'/dashboard/selectedclass'}><FaAward></FaAward> Selected Classes</NavLink></li>
                             <li><NavLink to={'/dashboard/enrolledclass'}><FaUserGraduate></FaUserGraduate> Enrolled Classes</NavLink></li>
+                            <li><NavLink to={'/dashboard/paymenthistory'}><FaPaypal></FaPaypal> Payment History</NavLink></li>
 
                             <div className="divider"></div>
 

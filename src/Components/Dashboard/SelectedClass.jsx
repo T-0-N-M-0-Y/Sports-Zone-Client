@@ -59,7 +59,7 @@ const SelectedClass = () => {
                                 <th>Image</th>
                                 <th>Class Name</th>
                                 <th>Instructor</th>
-                                <th>Price</th>
+                                <th>Course Price</th>
                                 <th>Action</th>
                                 <th>Action</th>
                             </tr>

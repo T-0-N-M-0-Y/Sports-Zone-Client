@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import useSelectedClasses from "../Hooks/useSelectedClasses";
 import Swal from "sweetalert2";
@@ -62,6 +62,17 @@ const AllClassDetails = ({ allclass }) => {
         }
     }
 
+    const [disabled, setDisabled] = useState([false]);
+
+    useEffect(() => {
+        if(availableSeats === 0){
+            setDisabled(true)
+        }
+        else{
+            setDisabled(false)
+        }
+    }, [availableSeats])
+
     return (
         <div className="card bg-base-200">
             <div className="card-body">
@@ -73,7 +84,7 @@ const AllClassDetails = ({ allclass }) => {
             </div>
             <figure><img src={image} className="h-96 w-full rounded-full" alt="Album" /></figure>
             <div className="card-actions justify-center my-3">
-                <button onClick={() => handleSelectedClasses(allclass)} className="btn bg-orange-500 hover:bg-orange-800 text-white">Select Class</button>
+                <button onClick={() => handleSelectedClasses(allclass)} disabled={disabled} className="btn bg-orange-500 hover:bg-orange-800 text-white">Select Class</button>
             </div>
         </div>
     );
