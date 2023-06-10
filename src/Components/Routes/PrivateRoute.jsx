@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { AuthContext } from "../../Providers/Authproviders";
 import { Navigate, useLocation } from "react-router-dom";
 import { FaSpinner } from "react-icons/fa";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const PrivateRoute = ({ children }) => {
 
