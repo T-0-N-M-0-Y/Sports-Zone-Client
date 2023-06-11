@@ -21,6 +21,7 @@ import SelectedClass from './Components/Dashboard/SelectedClass.jsx';
 import EnrolledClass from './Components/Dashboard/EnrolledClass.jsx';
 import ManageClasses from './Components/Dashboard/Admin/ManageClasses.jsx';
 import ManageUsers from './Components/Dashboard/Admin/ManageUsers.jsx';
+import DashHome from './Components/Dashboard/DashHome.jsx';
 
 const queryClient = new QueryClient()
 
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
     path: "/dashboard",
     element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
+      {
+        path: "dashhome",
+        element: <DashHome></DashHome>
+      },
       {
         path: "manageclasses",
         element: <ManageClasses></ManageClasses>

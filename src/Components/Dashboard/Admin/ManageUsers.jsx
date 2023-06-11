@@ -82,7 +82,7 @@ const ManageUsers = () => {
             <Helmet>
                 <title>Sports Zone | Manage Users</title>
             </Helmet>
-            <h1 className="text-3xl font-bold">Total Users: {users.length}</h1>
+            
             <div>
                 <div className="overflow-x-auto w-full">
                     <table className="table w-full">

@@ -1,12 +1,14 @@
 import { Helmet } from "react-helmet-async";
 import { FaAward, FaHome, FaPaypal, FaRegGem, FaUniversity, FaUserGraduate, FaUserSecret, FaUsers } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
+import useVerifyInstructor from "../../Hooks/useVerifyInstructor";
+import useVerifyAdmin from "../../Hooks/useVerifyAdmin";
 
 
 const Dashboard = () => {
 
-    const isInstructor = false;
-    const isAdmin = true;
+    const [isInstructor] = useVerifyInstructor();
+    const [isAdmin] = useVerifyAdmin();
 
     return (
         <div>
@@ -41,7 +43,6 @@ const Dashboard = () => {
                                                 <>
                                                     <li><NavLink to={'/dashboard/addclass'}><FaAward></FaAward> Add Class</NavLink></li>
                                                     <li><NavLink to={'/dashboard/myclasses'}><FaUserGraduate></FaUserGraduate> My Classes</NavLink></li>
-                                                    <li><NavLink to={'/dashboard/paymenthistory'}><FaPaypal></FaPaypal> Payment History</NavLink></li>
                                                 </>
                                                 :
                                                 <>

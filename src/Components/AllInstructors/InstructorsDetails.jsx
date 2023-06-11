@@ -13,7 +13,7 @@ const InstructorsDetails = () => {
             <Helmet>
                 <title>Sports Zone | Instructors</title>
             </Helmet>
-            <h1 className='md:text-4xl text-2xl uppercase font-bold pt-32 pb-10 text-center'>Konw Our Instructors</h1>
+            <h1 className='md:text-4xl text-2xl uppercase font-bold pt-32 pb-10 text-center'>Know Our Instructors</h1>
             <div className="md:grid grid-cols-3 gap-3 mx-20">
                 {
                     sortedInstructors.map(instructor =>

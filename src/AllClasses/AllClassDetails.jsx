@@ -3,6 +3,8 @@ import { AuthContext } from "../Provider/AuthProvider";
 import useSelectedClasses from "../Hooks/useSelectedClasses";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
+import useVerifyAdmin from "../Hooks/useVerifyAdmin";
+import useVerifyInstructor from "../Hooks/useVerifyInstructor";
 
 const AllClassDetails = ({ allclass }) => {
 
@@ -63,13 +65,16 @@ const AllClassDetails = ({ allclass }) => {
         }
     }
 
+    const [isAdmin] = useVerifyAdmin();
+    const [isInstructor] = useVerifyInstructor();
+
     const [disabled, setDisabled] = useState(false);
 
     useEffect(() => {
-        if(availableSeats === 0){
+        if(availableSeats === 0 && isAdmin || isInstructor){
             setDisabled(true)
         }
-    }, [availableSeats])
+    }, [availableSeats, isAdmin, isInstructor])
 
     return (
         <div className="card bg-base-200">
