@@ -1,10 +1,12 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+import useSelectedClasses from "../../Hooks/useSelectedClasses";
 
 const Navbar = () => {
 
     const { user, logOut } = useContext(AuthContext);
+    const [selectedclasses] = useSelectedClasses();
 
     const handleSignOut = () => {
         logOut()
@@ -17,7 +19,7 @@ const Navbar = () => {
             <Link to={'/'}><li className="hover:bg-orange-800 p-3 rounded-lg mr-5">HOME</li></Link>
             <Link to={'/classes'}><li className="hover:bg-orange-800 p-3 rounded-lg mr-5">CLASSES</li></Link>
             <Link to={'/instructors'}><li className="hover:bg-orange-800 p-3 rounded-lg mr-5">INSTRUCTORS</li></Link>
-            <Link to={'/dashboard/selectedclass'}><li className="hover:bg-orange-800 p-3 rounded-lg mr-5">DASHBOARD</li></Link>
+            <Link to={'/dashboard/selectedclass'}><li className="hover:bg-orange-800 p-3 rounded-lg">DASHBOARD + {selectedclasses?.length || ' '}</li></Link>
         </>
 
     return (

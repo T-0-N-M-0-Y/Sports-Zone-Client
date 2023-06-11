@@ -19,6 +19,8 @@ import PrivateRoute from './Components/Routes/PrivateRoute.jsx';
 import Dashboard from './Components/Dashboard/Dashboard.jsx';
 import SelectedClass from './Components/Dashboard/SelectedClass.jsx';
 import EnrolledClass from './Components/Dashboard/EnrolledClass.jsx';
+import ManageClasses from './Components/Dashboard/Admin/ManageClasses.jsx';
+import ManageUsers from './Components/Dashboard/Admin/ManageUsers.jsx';
 
 const queryClient = new QueryClient()
 
@@ -55,12 +57,20 @@ const router = createBrowserRouter([
     element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
       {
+        path: "manageclasses",
+        element: <ManageClasses></ManageClasses>
+      },
+      {
+        path: "manageusers",
+        element: <ManageUsers></ManageUsers>
+      },
+      {
         path: "selectedclass",
-        element: <SelectedClass></SelectedClass>,
+        element: <SelectedClass></SelectedClass>
       },
       {
         path: "enrolledclass",
-        element: <EnrolledClass></EnrolledClass>,
+        element: <EnrolledClass></EnrolledClass>
       },
     ]
   }

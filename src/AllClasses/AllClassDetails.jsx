@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import useSelectedClasses from "../Hooks/useSelectedClasses";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const AllClassDetails = ({ allclass }) => {
 
@@ -13,6 +13,7 @@ const AllClassDetails = ({ allclass }) => {
     const [, refetch] = useSelectedClasses();
 
     const navigate = useNavigate();
+    const location = useLocation();
 
     const handleSelectedClasses = allclass => {
         console.log(allclass);
@@ -28,7 +29,7 @@ const AllClassDetails = ({ allclass }) => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.insertedId) {
-                        refetch(); //refetch to update the number of items to the cart
+                        refetch();
                         Swal.fire({
                             title: 'Class Added',
                             showClass: {
@@ -56,20 +57,17 @@ const AllClassDetails = ({ allclass }) => {
                 reverseButtons: true
             }).then((result) => {
                 if (result.isConfirmed) {
-                    navigate('/login')
+                    navigate('/login', {state: {from: location}})
                 }
             })
         }
     }
 
-    const [disabled, setDisabled] = useState([false]);
+    const [disabled, setDisabled] = useState(false);
 
     useEffect(() => {
         if(availableSeats === 0){
             setDisabled(true)
-        }
-        else{
-            setDisabled(false)
         }
     }, [availableSeats])
 

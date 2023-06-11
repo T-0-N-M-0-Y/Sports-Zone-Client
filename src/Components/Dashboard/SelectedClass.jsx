@@ -1,15 +1,12 @@
 import { Helmet } from "react-helmet-async";
 import useSelectedClasses from "../../Hooks/useSelectedClasses";
 import { Link } from "react-router-dom";
-import { FaTrashAlt } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
 
 const SelectedClass = () => {
 
     const [selectedclasses, refetch] = useSelectedClasses();
-
-    const total = selectedclasses.reduce((sum, selectedclass) => selectedclass.price + sum, 0);
-    const totalPrice = parseFloat(total.toFixed(2));
 
     const handleDeleteClass = selectedclass => {
 
@@ -42,13 +39,12 @@ const SelectedClass = () => {
     }
 
     return (
-        <div className="w-full h-full mt-10 mx-10">
+        <div className="h-full w-3/4 mt-20">
             <Helmet>
-                <title>Bristro Boss | Selected Class</title>
+                <title>Sports Zone | Selected Class</title>
             </Helmet>
-            <div className="flex justify-evenly items-center mb-5">
+            <div className="flex justify-between items-center mb-5">
                 <h1 className="text-xl font-semibold">Selected Classes: {selectedclasses.length}</h1>
-                <h1 className="text-xl font-semibold">Total Price: $ {totalPrice}</h1>
             </div>
             <div>
                 <div className="overflow-x-auto w-full">
@@ -87,7 +83,7 @@ const SelectedClass = () => {
                                         </td>
                                         <td>$ {selectedclass.price}</td>
                                         <th>
-                                            <button onClick={() => handleDeleteClass(selectedclass)} className="btn bg-orange-500 hover:bg-orange-800 text-white border-none"><FaTrashAlt></FaTrashAlt></button>
+                                            <button onClick={() => handleDeleteClass(selectedclass)} className="btn bg-orange-500 hover:bg-orange-800 text-white border-none"><FaTrash></FaTrash></button>
                                         </th>
                                         <th>
                                             <Link to={'/dashboard/payment'}><button className="btn bg-orange-500 w-14 h-10 text-white hover:bg-orange-800 border-none">Pay</button></Link>
