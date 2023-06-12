@@ -9,15 +9,15 @@ const useVerifyInstructor = () => {
     const { user } = useContext(AuthContext);
     const [AXIOS] = useAxios()
 
-    const { data: isInstructor, isLoading: isInstructorLoading } = useQuery({
-        queryKey: ['isInstructor', user?.email],
+    const { data: checkInstructor, isLoading: checkInstructorLoading } = useQuery({
+        queryKey: ['checkInstructor', user?.email],
         queryFn: async () => {
             const res = await AXIOS.get(`/users/instructor/${user?.email}`);
             return res.data.instructor;
         }
     })
 
-    return ([isInstructor, isInstructorLoading]);
+    return ([checkInstructor, checkInstructorLoading]);
 };
 
 export default useVerifyInstructor;

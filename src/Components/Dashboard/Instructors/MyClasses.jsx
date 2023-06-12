@@ -1,14 +1,15 @@
 import { Helmet } from "react-helmet-async";
 
-const EnrolledClass = () => {
+const MyClasses = () => {
 
     return (
         <div>
             <Helmet>
-                <title>Sports Zone | Enrolled Class</title>
+                <title>Sports Zone | Selected Class</title>
             </Helmet>
+            <h1>My Classes</h1>
         </div>
     );
 };
 
-export default EnrolledClass;
+export default MyClasses;

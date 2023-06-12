@@ -2,12 +2,16 @@ import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet-async";
 import { FaTrashAlt, FaUserSecret, FaUserShield, FaUsers } from "react-icons/fa";
 import Swal from "sweetalert2";
+import useAxios from "../../../Hooks/useAxios";
 
 const ManageUsers = () => {
 
+    const [AXIOS] = useAxios()
+
     const { data: users = [], refetch } = useQuery(['users'], async () => {
-        const res = await fetch('http://localhost:5000/users')
-        return res.json();
+        const res = await AXIOS.get('/users')
+        console.log(res.data);
+        return res.data;
     })
 
     const handleDeleteUser = user => {
@@ -82,7 +86,7 @@ const ManageUsers = () => {
             <Helmet>
                 <title>Sports Zone | Manage Users</title>
             </Helmet>
-            
+
             <div>
                 <div className="overflow-x-auto w-full">
                     <table className="table w-full">

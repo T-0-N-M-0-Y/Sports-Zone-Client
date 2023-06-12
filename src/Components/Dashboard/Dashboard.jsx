@@ -7,8 +7,8 @@ import useVerifyAdmin from "../../Hooks/useVerifyAdmin";
 
 const Dashboard = () => {
 
-    const [isInstructor] = useVerifyInstructor();
-    const [isAdmin] = useVerifyAdmin();
+    const [checkInstructor] = useVerifyInstructor();
+    const [checkAdmin] = useVerifyAdmin();
 
     return (
         <div>
@@ -31,7 +31,7 @@ const Dashboard = () => {
                         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                         <ul className="menu p-4 w-80 h-full bg-orange-500 text-white text-xl">
                             {
-                                isAdmin ?
+                                checkAdmin ?
                                     <>
                                         <li><NavLink to={'/dashboard/manageclasses'}><FaRegGem></FaRegGem> Manage Classes</NavLink></li>
                                         <li><NavLink to={'/dashboard/manageusers'}><FaUsers></FaUsers> Manage Users</NavLink></li>
@@ -39,7 +39,7 @@ const Dashboard = () => {
                                     :
                                     <>
                                         {
-                                            isInstructor ?
+                                            checkInstructor ?
                                                 <>
                                                     <li><NavLink to={'/dashboard/addclass'}><FaAward></FaAward> Add Class</NavLink></li>
                                                     <li><NavLink to={'/dashboard/myclasses'}><FaUserGraduate></FaUserGraduate> My Classes</NavLink></li>

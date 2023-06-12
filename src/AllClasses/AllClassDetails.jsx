@@ -65,16 +65,16 @@ const AllClassDetails = ({ allclass }) => {
         }
     }
 
-    const [isAdmin] = useVerifyAdmin();
-    const [isInstructor] = useVerifyInstructor();
+    const [checkAdmin] = useVerifyAdmin();
+    const [checkInstructor] = useVerifyInstructor();
 
     const [disabled, setDisabled] = useState(false);
 
     useEffect(() => {
-        if(availableSeats === 0 && isAdmin || isInstructor){
+        if(availableSeats === 0 || checkAdmin || checkInstructor){
             setDisabled(true)
         }
-    }, [availableSeats, isAdmin, isInstructor])
+    }, [availableSeats, checkAdmin, checkInstructor])
 
     return (
         <div className="card bg-base-200">

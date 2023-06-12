@@ -22,6 +22,10 @@ import EnrolledClass from './Components/Dashboard/EnrolledClass.jsx';
 import ManageClasses from './Components/Dashboard/Admin/ManageClasses.jsx';
 import ManageUsers from './Components/Dashboard/Admin/ManageUsers.jsx';
 import DashHome from './Components/Dashboard/DashHome.jsx';
+import PrivateAdminRoutes from './Components/Routes/PrivateAdminRoutes.jsx';
+import AddClass from './Components/Dashboard/Instructors/AddClass.jsx';
+import MyClasses from './Components/Dashboard/Instructors/MyClasses.jsx';
+import PrivateInstructorRoutes from './Components/Routes/PrivateInstructorRoute.jsx';
 
 const queryClient = new QueryClient()
 
@@ -61,14 +65,25 @@ const router = createBrowserRouter([
         path: "dashhome",
         element: <DashHome></DashHome>
       },
+      // Admin Section 
       {
         path: "manageclasses",
-        element: <ManageClasses></ManageClasses>
+        element: <PrivateAdminRoutes><ManageClasses></ManageClasses></PrivateAdminRoutes>
       },
       {
         path: "manageusers",
-        element: <ManageUsers></ManageUsers>
+        element: <PrivateAdminRoutes><ManageUsers></ManageUsers></PrivateAdminRoutes>
       },
+      // Instructor section 
+      {
+        path: "addclass",
+        element: <PrivateInstructorRoutes><AddClass></AddClass></PrivateInstructorRoutes>
+      },
+      {
+        path: "myclasses",
+        element: <PrivateInstructorRoutes><MyClasses></MyClasses></PrivateInstructorRoutes>
+      },
+      // Students Section 
       {
         path: "selectedclass",
         element: <SelectedClass></SelectedClass>
