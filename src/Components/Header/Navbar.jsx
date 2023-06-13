@@ -17,8 +17,8 @@ const Navbar = () => {
     const navbarItems =
         <>
             <Link to={'/'}><li className="hover:bg-orange-800 p-3 rounded-lg mr-5">HOME</li></Link>
-            <Link to={'/classes'}><li className="hover:bg-orange-800 p-3 rounded-lg mr-5">CLASSES</li></Link>
             <Link to={'/instructors'}><li className="hover:bg-orange-800 p-3 rounded-lg mr-5">INSTRUCTORS</li></Link>
+            <Link to={'/classes'}><li className="hover:bg-orange-800 p-3 rounded-lg mr-5">CLASSES</li></Link>
             <Link to={'/dashboard/dashhome'}><li className="hover:bg-orange-800 p-3 rounded-lg">DASHBOARD + {selectedclasses?.length || ' '}</li></Link>
         </>
 
