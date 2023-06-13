@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { useContext } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import { motion } from "framer-motion"
 
 const image_API_key = import.meta.env.VITE_IMAGE_API_KEY;
 
@@ -108,8 +109,12 @@ const AddClass = () => {
                         <input type="file" {...register("image", { required: true })} className=" file-input file-input-bordered w-full" />
                     </div>
                 </div>
-
-                <input className="h-10 w-full rounded-lg bg-orange-500 hover:bg-orange-800 text-white mx-auto" type="submit" value="Add Item" />
+                <motion.div className="box"
+                    whileHover={{ scale: .9 }}
+                    whileTap={{ scale: 1.2 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 17 }} >
+                    <input className="h-10 w-full rounded-lg bg-orange-500 hover:bg-orange-800 text-white mx-auto" type="submit" value="Add Class" />
+                </motion.div>
             </form>
         </div>
     );

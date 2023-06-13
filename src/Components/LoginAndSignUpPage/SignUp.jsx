@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Provider/AuthProvider";
 import GoGiFa from "./GoGiFa";
+import { motion } from "framer-motion"
 
 const SignUp = () => {
 
@@ -60,7 +61,7 @@ const SignUp = () => {
                         <label className="label">
                             <span className="label-text">Name</span>
                         </label>
-                        <input  placeholder="Name" className="input input-bordered" />
+                        <input placeholder="Name" className="input input-bordered" />
                         {errors.name && <span className="text-red-500">Name is required</span>}
                     </div>
                     <div className="form-control">
@@ -86,7 +87,12 @@ const SignUp = () => {
                         {errors.password?.type === 'pattern' && <p className="text-red-500">password must have a Capital letter & a Special Charecter</p>}
                     </div>
                     <div className="form-control mt-6">
-                        <input className="btn bg-orange-800 text-white hover:bg-orange-500 border-none" type="submit" value="Sign Up" />
+                        <motion.div className="box"
+                            whileHover={{ scale: .9 }}
+                            whileTap={{ scale: 1.2 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 17 }} >
+                            <input className="btn bg-orange-800 text-white hover:bg-orange-500 border-none w-full" type="submit" value="Sign Up" />
+                        </motion.div>
                     </div>
                 </form>
                 <GoGiFa></GoGiFa>

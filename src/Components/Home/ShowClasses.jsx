@@ -1,3 +1,4 @@
+
 const ShowClasses = ({ sortClass }) => {
 
     const { name, image, numStudents } = sortClass;
@@ -13,7 +14,7 @@ const ShowClasses = ({ sortClass }) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import useSelectedClasses from "../../Hooks/useSelectedClasses";
+import { motion } from "framer-motion"
 
 const Navbar = () => {
 
@@ -46,9 +47,19 @@ const Navbar = () => {
                 <div className="navbar-end">
                     {
                         user ?
-                            <Link onClick={handleSignOut} className="mr-2 bg-base-800 p-2 lg:p-3 text-white rounded-lg hover:bg-orange-800"> <button>LOGOUT</button></Link>
+                            <motion.div className="box"
+                                whileHover={{ scale: .9 }}
+                                whileTap={{ scale: 1.2 }}
+                                transition={{ type: "spring", stiffness: 400, damping: 17 }} >
+                                <Link onClick={handleSignOut} className="mr-2 bg-base-800 p-2 lg:p-3 text-white rounded-lg hover:bg-orange-800"> <button>LOGOUT</button></Link>
+                            </motion.div>
                             :
-                            <Link className="mr-2 bg-base-800 p-2 lg:p-3 text-white rounded-lg hover:bg-orange-800" to={"/login"}> <button>LOGIN</button></Link>
+                            <motion.div className="box"
+                                whileHover={{ scale: .9 }}
+                                whileTap={{ scale: 1.2 }}
+                                transition={{ type: "spring", stiffness: 400, damping: 17 }} >
+                                <Link className="mr-2 bg-base-800 p-2 lg:p-3 text-white rounded-lg hover:bg-orange-800" to={"/login"}> <button>LOGIN</button></Link>
+                            </motion.div>
                     }
                     {
                         user ?
@@ -56,7 +67,12 @@ const Navbar = () => {
                                 <img className="w-10 h-10 lg:h-14 lg:w-14 rounded-full" src={user.photoURL} referrerPolicy="no-referrer" />
                             </div>
                             :
-                            <Link className="mr-2 bg-base-800 p-2 lg:p-3 text-white rounded-lg hover:bg-orange-800" to={"/signup"}> <button>SIGN UP</button></Link>
+                            <motion.div className="box"
+                                whileHover={{ scale: .9 }}
+                                whileTap={{ scale: 1.2 }}
+                                transition={{ type: "spring", stiffness: 400, damping: 17 }} >
+                                <Link className="mr-2 bg-base-800 p-2 lg:p-3 text-white rounded-lg hover:bg-orange-800" to={"/signup"}> <button>SIGN UP</button></Link>
+                            </motion.div>
                     }
                 </div>
 

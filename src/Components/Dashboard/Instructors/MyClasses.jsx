@@ -48,6 +48,8 @@ const MyClasses = () => {
                                             <div className="font-bold">{addedClass.availableSeats}</div>
                                         </td>
                                         <td>{addedClass.numStudents}</td>
+
+                                        <td>{addedClass.numStudents}</td>
                                         <th>
                                             {
                                                 !addedClass.status ?
@@ -60,17 +62,19 @@ const MyClasses = () => {
 
                                             <br />
 
-                                            <label htmlFor="my_modal_6" className="btn btn-xs bg-orange-500 hover:bg-orange-800 text-white border-none mt-3">See Feedback</label>
-
+                                            <label htmlFor="my_modal_6" disabled={addedClass.status === 'Approved' || !addedClass.status} className="btn btn-xs bg-orange-500 hover:bg-orange-800 text-white border-none mt-3">Feedback</label>
                                             <input type="checkbox" id="my_modal_6" className="modal-toggle" />
                                             <div className="modal">
                                                 <div className="modal-box">
-                                                    <h3 className="font-bold text-lg">Feedback</h3>
-                                                    <p></p>
+                                                    <p className="flex mt-20 justify-center">Update Your Info To Get Approved Again!</p>
                                                     <div className="modal-action">
                                                         <label htmlFor="my_modal_6" className="btn">Ok</label>
                                                     </div>
                                                 </div>
+                                            </div>
+
+                                            <div>
+                                                <button className="btn btn-xs bg-orange-500 hover:bg-orange-800 text-white border-none mt-2 mx-2 ">Update</button>
                                             </div>
                                         </th>
                                     </tr>

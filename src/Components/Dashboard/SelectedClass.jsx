@@ -43,8 +43,9 @@ const SelectedClass = () => {
             <Helmet>
                 <title>Sports Zone | Selected Class</title>
             </Helmet>
-            <div className="flex justify-between items-center mb-5">
+            <div className="flex justify-around items-center mb-5">
                 <h1 className="text-xl font-semibold">Selected Classes: {selectedclasses.length}</h1>
+                <Link to={'/dashboard/payment'}><button className="btn bg-orange-500 w-14 h-10 text-white hover:bg-orange-800 border-none">Pay</button></Link>
             </div>
             <div>
                 <div className="overflow-x-auto w-full">
@@ -56,8 +57,7 @@ const SelectedClass = () => {
                                 <th>Class Name</th>
                                 <th>Instructor</th>
                                 <th>Course Price</th>
-                                <th>Action</th>
-                                <th>Action</th>
+                                <th>Delete</th>
                             </tr>
                         </thead>
 
@@ -84,9 +84,6 @@ const SelectedClass = () => {
                                         <td>$ {selectedclass.price}</td>
                                         <th>
                                             <button onClick={() => handleDeleteClass(selectedclass)} className="btn bg-orange-500 hover:bg-orange-800 text-white border-none"><FaTrash></FaTrash></button>
-                                        </th>
-                                        <th>
-                                            <Link to={'/dashboard/payment'}><button className="btn bg-orange-500 w-14 h-10 text-white hover:bg-orange-800 border-none">Pay</button></Link>
                                         </th>
                                     </tr>
                                 )

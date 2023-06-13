@@ -6,19 +6,20 @@ import GoGiFa from './GoGiFa';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { useForm } from 'react-hook-form';
 import { FaEye } from 'react-icons/fa';
+import { motion } from "framer-motion"
 
 
 const Login = () => {
 
-    
+
     const navigate = useNavigate();
     const location = useLocation();
     const redirectTo = location?.state?.from?.pathname || "/";
-    
+
     const { signInWithEmailPass } = useContext(AuthContext);
-    
+
     const { register, handleSubmit } = useForm();
-    
+
     const [showPassowrd, setShowPassword] = useState(false)
 
     const onSubmit = data => {
@@ -68,7 +69,12 @@ const Login = () => {
 
                     </div>
                     <div className="form-control mt-6">
-                        <input className="btn w-11/12 bg-orange-800 text-white hover:bg-orange-500 border-none" type="submit" value="Login" />
+                        <motion.div className="box"
+                            whileHover={{ scale: .9 }}
+                            whileTap={{ scale: 1.2 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 17 }} >
+                            <input className="btn w-11/12 bg-orange-800 text-white hover:bg-orange-500 border-none" type="submit" value="Login" />
+                        </motion.div>
                     </div>
                 </form>
                 <div className='mx-10'>

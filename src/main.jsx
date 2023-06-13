@@ -26,6 +26,7 @@ import PrivateAdminRoutes from './Components/Routes/PrivateAdminRoutes.jsx';
 import AddClass from './Components/Dashboard/Instructors/AddClass.jsx';
 import MyClasses from './Components/Dashboard/Instructors/MyClasses.jsx';
 import PrivateInstructorRoutes from './Components/Routes/PrivateInstructorRoute.jsx';
+import Checkout from './Components/Dashboard/Checkout.jsx';
 
 const queryClient = new QueryClient()
 
@@ -91,6 +92,10 @@ const router = createBrowserRouter([
       {
         path: "enrolledclass",
         element: <EnrolledClass></EnrolledClass>
+      },
+      {
+        path: "payment",
+        element: <Checkout></Checkout>
       },
     ]
   }
