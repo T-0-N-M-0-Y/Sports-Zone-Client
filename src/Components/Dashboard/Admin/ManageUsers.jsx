@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet-async";
-import { FaTrashAlt, FaUserSecret, FaUserShield, FaUsers } from "react-icons/fa";
+import { FaUserSecret, FaUserShield, FaUsers } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxios from "../../../Hooks/useAxios";
 
@@ -14,34 +14,6 @@ const ManageUsers = () => {
         return res.data;
     })
 
-    const handleDeleteUser = user => {
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                fetch(`http://localhost:5000/users/admin/${user._id}`, {
-                    method: 'DELETE'
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        if (data.deletedCount > 0) {
-                            refetch();
-                            Swal.fire(
-                                'Deleted!',
-                                'Your file has been deleted.',
-                                'success'
-                            )
-                        }
-                    })
-            }
-        })
-    }
 
     const handlePromoteAdmin = user => {
         fetch(`http://localhost:5000/users/admin/${user._id}`, {
@@ -130,9 +102,6 @@ const ManageUsers = () => {
                                                     <button onClick={() => handlePromoteInstructor(user)} className="btn bg-orange-500 hover:bg-orange-800 text-white border-none"><FaUsers></FaUsers></button>
                                             }
                                         </td>
-                                        <th>
-                                            <button onClick={() => handleDeleteUser(user)} className="btn bg-red-600 text-white border-none"><FaTrashAlt></FaTrashAlt></button>
-                                        </th>
                                     </tr>
 
                                 )

@@ -25,10 +25,10 @@ const AddClass = () => {
             body: formData
         })
             .then(res => res.json())
-            .then(imgResponse => {
-                const imgURL = imgResponse.data.display_url;
+            .then(image => {
+                const imgURL = image.data.display_url;
                 const { name, price, availableSeats, instructor, email, numStudents } = data;
-                const newCLass = { name, price, availableSeats, instructor, email, numStudents, image: imgURL }
+                const newCLass = { name, price: parseFloat(price), availableSeats, instructor, email, numStudents, image: imgURL }
                 console.log(newCLass);
 
                 AXIOS.post('/classes', newCLass)
