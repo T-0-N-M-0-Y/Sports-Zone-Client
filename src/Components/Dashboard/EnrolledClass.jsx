@@ -7,23 +7,19 @@ const EnrolledClass = () => {
     console.log(payments);
 
     return (
-        <div>
+        <div className="w-full">
             <Helmet>
                 <title>Sports Zone | Enrolled Class</title>
             </Helmet>
 
             <div className="w-full">
-                <h1 className="text-center text-4xl font-bold mt-10 mb-20">Payment History</h1>
+                <h1 className="text-center text-4xl font-bold mt-10 mb-20">Enrolled Classes</h1>
                 <div>
-                    <div className="overflow-x-auto w-full">
-                        <table className="table w-full mx-10">
+                    <div>
+                        <table className="table w-full">
                             <thead>
                                 <tr>
-                                    <th>#</th>
                                     <th>Classes</th>
-                                    <th>Email</th>
-                                    <th>Amount</th>
-                                    <th>transactionId</th>
                                     <th>Status</th>
                                     <th>date</th>
                                 </tr>
@@ -31,25 +27,13 @@ const EnrolledClass = () => {
 
                             <tbody>
                                 {
-                                    payments.map((payment, index) =>
+                                    payments.map((payment) =>
                                         <tr key={payment._id}>
-                                            <th>
-                                                {index + 1}
-                                            </th>
                                             <td>
                                                 <div>{payment.className[0]}</div>
                                                 <div>{payment.className[1]}</div>
                                                 <div>{payment.className[2]}</div>
                                                 <div>{payment.className[3]}</div>
-                                            </td>
-                                            <td>
-                                                <div>{payment.email}</div>
-                                            </td>
-                                            <td>
-                                                <div>$ {payment.price}</div>
-                                            </td>
-                                            <td>
-                                                $ {payment.transactionId}
                                             </td>
                                             <td>
                                                 $ {payment.status}

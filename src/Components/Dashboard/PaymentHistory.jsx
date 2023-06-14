@@ -10,8 +10,8 @@ const PaymentHistory = () => {
         <div className="w-full">
             <h1 className="text-center text-4xl font-bold mt-10 mb-20">Payment History</h1>
             <div>
-                <div className="overflow-x-auto w-full">
-                    <table className="table w-full mx-10">
+                <div>
+                    <table className="table w-full">
                         <thead>
                             <tr>
                                 <th>#</th>
