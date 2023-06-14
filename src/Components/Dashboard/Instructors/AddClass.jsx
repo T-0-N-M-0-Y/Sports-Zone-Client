@@ -52,7 +52,7 @@ const AddClass = () => {
     };
 
     return (
-        <div className="w-9/12 mx-auto">
+        <div className="md:w-11/12 md:mx-auto my-10">
             <Helmet>
                 <title>Sports Zone | Add Class</title>
             </Helmet>
@@ -79,7 +79,7 @@ const AddClass = () => {
                     <input type="text"  {...register("name", { required: true, maxLength: 100 })} placeholder="Class Name" className="input input-bordered w-full" />
                 </div>
 
-                <div className="mt-2 grid grid-cols-2 gap-3">
+                <div className="mt-2 md:grid grid-cols-2 gap-3">
                     <div>
                         <label className="label">
                             <span className="label-text font-semibold">Available Seats</span>
@@ -95,7 +95,7 @@ const AddClass = () => {
                         </div>
                     </div>
                 </div>
-                <div className="form-control my-3 grid grid-cols-2 gap-5">
+                <div className="form-control my-3 md:grid grid-cols-2 gap-5">
                     <div>
                         <label className="label">
                             <span className="label-text font-semibold">Number of Students</span>
@@ -111,7 +111,7 @@ const AddClass = () => {
                 </div>
                 <motion.div className="box"
                     whileHover={{ scale: .9 }}
-                    whileTap={{ scale: 1.2 }}
+                    whileTap={{ scale: 1.1 }}
                     transition={{ type: "spring", stiffness: 400, damping: 17 }} >
                     <input className="h-10 w-full rounded-lg bg-orange-500 hover:bg-orange-800 text-white mx-auto" type="submit" value="Add Class" />
                 </motion.div>

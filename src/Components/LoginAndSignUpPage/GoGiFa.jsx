@@ -2,10 +2,11 @@ import { useContext } from 'react';
 import { FaFacebook, FaGithub, FaGoogle, FaTwitter } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const GoGiFa = () => {
 
-    const {signInWithGoogle} = useContext(AuthContext);
+    const { signInWithGoogle } = useContext(AuthContext);
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -27,6 +28,15 @@ const GoGiFa = () => {
                 })
                     .then(res => res.json())
                     .then(() => {
+                        Swal.fire({
+                            title: 'Login Success!! Enjoy Your Time',
+                            showClass: {
+                                popup: 'animate__animated animate__fadeInDown'
+                            },
+                            hideClass: {
+                                popup: 'animate__animated animate__fadeOutUp'
+                            }
+                        })
                         navigate(redirectTo, { replace: true });
                     })
             })

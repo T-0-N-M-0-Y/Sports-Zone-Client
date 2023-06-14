@@ -14,7 +14,7 @@ const InstructorsDetails = () => {
                 <title>Sports Zone | Instructors</title>
             </Helmet>
             <h1 className='md:text-4xl text-2xl uppercase font-bold pt-32 pb-10 text-center'>Know Our Instructors</h1>
-            <div className="md:grid grid-cols-3 gap-3 mx-20">
+            <div className="md:grid grid-cols-3 gap-5 mx-5 md:mx-20">
                 {
                     sortedInstructors.map(instructor =>
                         <AllInstructors

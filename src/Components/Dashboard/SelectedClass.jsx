@@ -3,6 +3,7 @@ import useSelectedClasses from "../../Hooks/useSelectedClasses";
 import { Link } from "react-router-dom";
 import { FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
+import {motion} from "framer-motion"
 
 const SelectedClass = () => {
 
@@ -45,14 +46,19 @@ const SelectedClass = () => {
             </Helmet>
             <div className="flex justify-around items-center mb-5">
                 <h1 className="text-xl font-semibold">Selected Classes: {selectedclasses.length}</h1>
-                <Link to={'/dashboard/payment'}><button className="btn bg-orange-500 w-14 h-10 text-white hover:bg-orange-800 border-none">Pay</button></Link>
+
+                <motion.div className="box"
+                    whileHover={{ scale: 1.3 }}
+                    whileTap={{ scale: .9 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 17 }} >
+                    <Link to={'/dashboard/payment'}><button className="btn bg-orange-500 w-14 h-10 text-white hover:bg-orange-800 border-none">Pay</button></Link>
+                </motion.div>
             </div>
             <div>
                 <div className="overflow-x-auto w-full">
                     <table className="table w-full">
                         <thead>
                             <tr>
-                                <th></th>
                                 <th>Image</th>
                                 <th>Class Name</th>
                                 <th>Instructor</th>
@@ -63,11 +69,8 @@ const SelectedClass = () => {
 
                         <tbody>
                             {
-                                selectedclasses.map((selectedclass, index) =>
+                                selectedclasses.map((selectedclass) =>
                                     <tr key={selectedclass._id}>
-                                        <th>
-                                            {index + 1}
-                                        </th>
                                         <td>
                                             <div className="avatar">
                                                 <div className="mask mask-squircle w-12 h-12">
@@ -76,10 +79,10 @@ const SelectedClass = () => {
                                             </div>
                                         </td>
                                         <td>
-                                            <div className="font-bold">{selectedclass.name}</div>
+                                            <div>{selectedclass.name}</div>
                                         </td>
                                         <td>
-                                            <div className="font-bold">{selectedclass.instructor}</div>
+                                            <div>{selectedclass.instructor}</div>
                                         </td>
                                         <td>$ {selectedclass.price}</td>
                                         <th>

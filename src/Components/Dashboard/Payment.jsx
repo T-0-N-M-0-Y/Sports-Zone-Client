@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion"
 
 const Payment = ({ selectedclasses, price }) => {
     const stripe = useStripe();
@@ -124,9 +125,14 @@ const Payment = ({ selectedclasses, price }) => {
                             },
                         }}
                     />
-                    <button className="btn bg-orange-500 w-14 h-10 hover:bg-orange-800 text-white border-none flex mt-10" type="submit" disabled={!stripe || !clientSecret || processing}>
-                        Pay
-                    </button>
+                    <motion.div className="box"
+                        whileHover={{ scale: .9 }}
+                        whileTap={{ scale: .9 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 17 }} >
+                        <button className="btn bg-orange-500 w-14 h-10 hover:bg-orange-800 text-white border-none flex mt-10" type="submit" disabled={!stripe || !clientSecret || processing}>
+                            Pay
+                        </button>
+                    </motion.div>
                     {
                         transactionId && <p className="text-green-600">Transaction Completed!! TransactionId: {transactionId}</p>
                     }

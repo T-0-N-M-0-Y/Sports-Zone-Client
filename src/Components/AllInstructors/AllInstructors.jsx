@@ -7,7 +7,7 @@ const AllInstructors = ({ instructor }) => {
     return (
         <div>
 
-            <div className="card w-full bg-base-200">
+            <div className="card w-full bg-base-200 mt-5">
                 <div className="card-body">
                     <h2 className="card-title">{name}</h2>
                     <p>{email}</p>

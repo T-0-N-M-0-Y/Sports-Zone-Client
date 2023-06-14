@@ -78,7 +78,7 @@ const AllClassDetails = ({ allclass }) => {
     }, [availableSeats, checkAdmin, checkInstructor])
 
     return (
-        <div className="card bg-base-200">
+        <div className="card bg-base-200 mt-5">
             <div className="card-body">
                 <h2 className="card-title">{name}</h2>
                 <p>Instructor: {instructor}</p>

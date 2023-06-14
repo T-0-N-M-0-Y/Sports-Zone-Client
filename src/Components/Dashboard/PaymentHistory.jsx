@@ -16,7 +16,6 @@ const PaymentHistory = () => {
                     <table className="table w-full">
                         <thead>
                             <tr>
-                                <th>#</th>
                                 <th>Classes</th>
                                 <th>Email</th>
                                 <th>Amount</th>
@@ -27,11 +26,8 @@ const PaymentHistory = () => {
 
                         <tbody>
                             {
-                                paymentSort.map((payment, index) =>
+                                paymentSort.map((payment) =>
                                     <tr key={payment._id}>
-                                        <th>
-                                            {index + 1}
-                                        </th>
                                         <td>
                                             <div>{payment.className[0]}</div>
                                             <div>{payment.className[1]}</div>

@@ -49,7 +49,7 @@ const Login = () => {
             <Helmet>
                 <title>Sports Zone | Login</title>
             </Helmet>
-            <div className='py-24 w-1/2 mx-auto border-2 rounded-2xl shadow-2xl'>
+            <div className='py-24 md:w-1/2 mx-auto border-2 rounded-2xl shadow-2xl'>
                 <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                     <h1 className='text-2xl font-bold text-center'>Login</h1>
                     <div className="form-control">

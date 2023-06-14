@@ -14,7 +14,7 @@ const AllClasses = () => {
                 <title>Sports Zone | Classes</title>
             </Helmet>
             <h1 className='md:text-4xl text-2xl uppercase font-bold pt-32 pb-10 text-center'>Our Classes</h1>
-            <div className="grid grid-cols-3 gap-5 mx-20">
+            <div className="md:grid grid-cols-3 gap-5 md:mx-20 mx-5">
                 {
                     sortClasses.map(allclass => <AllClassDetails
                         key={allclass._id}

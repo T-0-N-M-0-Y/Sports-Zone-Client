@@ -54,7 +54,7 @@ const SignUp = () => {
             <Helmet>
                 <title>Bristro Boss | Sign up</title>
             </Helmet>
-            <div className='py-20 w-1/2 h-screen mx-auto border-2 shadow-2xl'>
+            <div className='py-24 md:w-1/2 h-screen mx-auto border-2 shadow-2xl'>
                 <h1 className='text-2xl font-bold text-center'>Sign Up</h1>
                 <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                     <div className="form-control">
