@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
 import useVerifyAdmin from "../Hooks/useVerifyAdmin";
 import useVerifyInstructor from "../Hooks/useVerifyInstructor";
+import { motion } from "framer-motion"
 
 const AllClassDetails = ({ allclass }) => {
 
@@ -59,7 +60,7 @@ const AllClassDetails = ({ allclass }) => {
                 reverseButtons: true
             }).then((result) => {
                 if (result.isConfirmed) {
-                    navigate('/login', {state: {from: location}})
+                    navigate('/login', { state: { from: location } })
                 }
             })
         }
@@ -71,7 +72,7 @@ const AllClassDetails = ({ allclass }) => {
     const [disabled, setDisabled] = useState(false);
 
     useEffect(() => {
-        if(availableSeats === 0 || checkAdmin || checkInstructor){
+        if (availableSeats === 0 || checkAdmin || checkInstructor) {
             setDisabled(true)
         }
     }, [availableSeats, checkAdmin, checkInstructor])
@@ -87,7 +88,12 @@ const AllClassDetails = ({ allclass }) => {
             </div>
             <figure><img src={image} className="h-96 w-full rounded-full" alt="Album" /></figure>
             <div className="card-actions justify-center my-3">
-                <button onClick={() => handleSelectedClasses(allclass)} disabled={disabled} className="btn bg-orange-500 hover:bg-orange-800 text-white">Select Class</button>
+                <motion.div className="box"
+                    whileHover={{ scale: 1.3 }}
+                    whileTap={{ scale: .9 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 17 }} >
+                    <button onClick={() => handleSelectedClasses(allclass)} disabled={disabled} className="btn bg-orange-500 hover:bg-orange-800 text-white">Select Class</button>
+                </motion.div>
             </div>
         </div>
     );

@@ -17,10 +17,30 @@ const Navbar = () => {
 
     const navbarItems =
         <>
-            <Link to={'/'}><li className="hover:bg-orange-800 p-3 rounded-lg mr-5">HOME</li></Link>
-            <Link to={'/instructors'}><li className="hover:bg-orange-800 p-3 rounded-lg mr-5">INSTRUCTORS</li></Link>
-            <Link to={'/classes'}><li className="hover:bg-orange-800 p-3 rounded-lg mr-5">CLASSES</li></Link>
-            <Link to={'/dashboard/dashhome'}><li className="hover:bg-orange-800 p-3 rounded-lg">DASHBOARD + {selectedclasses?.length || ' '}</li></Link>
+            <motion.div className="box"
+                whileHover={{ scale: 1.3 }}
+                whileTap={{ scale: .9 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }} >
+                <Link to={'/'}><li className="hover:bg-orange-800 p-3 rounded-lg mr-5">HOME</li></Link>
+            </motion.div>
+            <motion.div className="box"
+                whileHover={{ scale: 1.3 }}
+                whileTap={{ scale: .9 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }} >
+                <Link to={'/instructors'}><li className="hover:bg-orange-800 p-3 rounded-lg mr-5">INSTRUCTORS</li></Link>
+            </motion.div>
+            <motion.div className="box"
+                whileHover={{ scale: 1.3 }}
+                whileTap={{ scale: .9 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }} >
+                <Link to={'/classes'}><li className="hover:bg-orange-800 p-3 rounded-lg mr-5">CLASSES</li></Link>
+            </motion.div>
+            <motion.div className="box"
+                whileHover={{ scale: 1.3 }}
+                whileTap={{ scale: .9 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }} >
+                <Link to={'/dashboard/dashhome'}><li className="hover:bg-orange-800 p-3 rounded-lg">DASHBOARD + {selectedclasses?.length || ' '}</li></Link>
+            </motion.div>
         </>
 
     return (
@@ -48,15 +68,15 @@ const Navbar = () => {
                     {
                         user ?
                             <motion.div className="box"
-                                whileHover={{ scale: .9 }}
-                                whileTap={{ scale: 1.2 }}
+                                whileHover={{ scale: 1.3 }}
+                                whileTap={{ scale: .9 }}
                                 transition={{ type: "spring", stiffness: 400, damping: 17 }} >
                                 <Link onClick={handleSignOut} className="mr-2 bg-base-800 p-2 lg:p-3 text-white rounded-lg hover:bg-orange-800"> <button>LOGOUT</button></Link>
                             </motion.div>
                             :
                             <motion.div className="box"
-                                whileHover={{ scale: .9 }}
-                                whileTap={{ scale: 1.2 }}
+                                whileHover={{ scale: 1.3 }}
+                                whileTap={{ scale: .9 }}
                                 transition={{ type: "spring", stiffness: 400, damping: 17 }} >
                                 <Link className="mr-2 bg-base-800 p-2 lg:p-3 text-white rounded-lg hover:bg-orange-800" to={"/login"}> <button>LOGIN</button></Link>
                             </motion.div>
@@ -68,8 +88,8 @@ const Navbar = () => {
                             </div>
                             :
                             <motion.div className="box"
-                                whileHover={{ scale: .9 }}
-                                whileTap={{ scale: 1.2 }}
+                                whileHover={{ scale: 1.3 }}
+                                whileTap={{ scale: .9 }}
                                 transition={{ type: "spring", stiffness: 400, damping: 17 }} >
                                 <Link className="mr-2 bg-base-800 p-2 lg:p-3 text-white rounded-lg hover:bg-orange-800" to={"/signup"}> <button>SIGN UP</button></Link>
                             </motion.div>

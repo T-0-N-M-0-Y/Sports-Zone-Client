@@ -36,10 +36,10 @@ const EnrolledClass = () => {
                                                 <div>{payment.className[3]}</div>
                                             </td>
                                             <td>
-                                                $ {payment.status}
+                                                {payment.status}
                                             </td>
                                             <td>
-                                                $ {payment.date}
+                                                {payment.date}
                                             </td>
                                         </tr>
                                     )
