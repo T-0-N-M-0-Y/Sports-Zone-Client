@@ -11,14 +11,13 @@ const MyClasses = () => {
                 <title>Sports Zone | Manage Users</title>
             </Helmet>
 
-            <h1 className="my-10 font-bold text-4xl">Manage all Classes</h1>
+            <h1 className="my-10 font-bold text-4xl">My Classes</h1>
 
             <div>
                 <div className="overflow-x-auto w-full">
                     <table className="table w-full text-center">
                         <thead>
                             <tr>
-                                <th>#</th>
                                 <th>Image</th>
                                 <th>Class Name</th>
                                 <th>Available Seats</th>
@@ -29,11 +28,8 @@ const MyClasses = () => {
 
                         <tbody>
                             {
-                                addedclasses.map((addedClass, index) =>
+                                addedclasses.map((addedClass) =>
                                     <tr key={addedClass._id}>
-                                        <th>
-                                            {index + 1}
-                                        </th>
                                         <td>
                                             <div className="avatar">
                                                 <div className="mask mask-squircle w-12 h-12">

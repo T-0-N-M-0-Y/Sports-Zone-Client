@@ -64,7 +64,6 @@ const ManageUsers = () => {
                     <table className="table w-full">
                         <thead>
                             <tr>
-                                <th>#</th>
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Make Admin</th>
@@ -74,11 +73,8 @@ const ManageUsers = () => {
 
                         <tbody>
                             {
-                                users.map((user, index) =>
+                                users.map((user) =>
                                     <tr key={user._id}>
-                                        <th>
-                                            {index + 1}
-                                        </th>
                                         <td>
                                             <div className=""> {user.name}</div>
                                         </td>

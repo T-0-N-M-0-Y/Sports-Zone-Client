@@ -71,7 +71,6 @@ const ManageClasses = () => {
                     <table className="table w-full text-center">
                         <thead>
                             <tr>
-                                <th>#</th>
                                 <th>Image</th>
                                 <th>Class Name</th>
                                 <th>Instructor</th>
@@ -83,11 +82,8 @@ const ManageClasses = () => {
 
                         <tbody>
                             {
-                                classes.map((classs, index) =>
+                                classes.map((classs) =>
                                     <tr key={classs._id}>
-                                        <th>
-                                            {index + 1}
-                                        </th>
                                         <td>
                                             <div className="avatar">
                                                 <div className="mask mask-squircle w-12 h-12">

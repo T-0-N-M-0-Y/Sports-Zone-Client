@@ -11,7 +11,7 @@ const Instructors = () => {
         <div className="text-center">
             <h1 className='md:text-4xl text-2xl uppercase font-bold md:my-10 mt-10'>Top Instructors</h1>
 
-            <div className="md:grid grid-cols-3 gap-3">
+            <div className="md:grid grid-cols-3 gap-5">
                 {
                     sortedInstructors.slice(0, 6).map(instructor => <ShowInstructors
                         key={instructor._id}
