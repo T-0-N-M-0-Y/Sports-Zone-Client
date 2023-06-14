@@ -1,14 +1,17 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import useAxios from "../../Hooks/useAxios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../Provider/AuthProvider";
 
-const Payment = ({ price }) => {
-    console.log(price);
+const Payment = ({ selectedclasses, price }) => {
     const stripe = useStripe();
     const elements = useElements();
     const [AXIOS] = useAxios();
     const [clientSecret, setClientSecret] = useState('');
     const [processing, setProcessing] = useState(false)
+    const [transactionId, setTransactionId] = useState();
+    const { user } = useContext(AuthContext);
 
     useEffect(() => {
         if (price > 0) {
@@ -50,6 +53,52 @@ const Payment = ({ price }) => {
             console.log('[PaymentMethod]', paymentMethod);
         }
         setProcessing(true);
+        const { paymentIntent, error: cofirmError } = await stripe.confirmCardPayment(
+            clientSecret,
+            {
+                payment_method: {
+                    card: card,
+                    billing_details: {
+                        email: user?.email || 'Anonymous User',
+                        name: user?.displayName || 'Anonymous User',
+                    },
+                },
+            },
+        );
+        if (cofirmError) {
+            console.log(cofirmError);
+        }
+        console.log(paymentIntent);
+        setProcessing(false)
+        if (paymentIntent.status === 'succeeded') {
+            setTransactionId(paymentMethod.id)
+            const payment = {
+                email: user?.email,
+                transactionId: paymentIntent.id,
+                price,
+                date: new Date(),
+                quantity: selectedclasses.length,
+                status: 'Payment Confirmed! Service Pending....',
+                class: selectedclasses.map(selectedClass => selectedClass._id),
+                classId: selectedclasses.map(selectedClass => selectedClass.classId),
+                className: selectedclasses.map(selectedClass => selectedClass.name)
+            }
+
+            AXIOS.post('/payment', payment)
+                .then(res => {
+                    if (res.data.result.insertedId) {
+                        Swal.fire({
+                            title: 'Payment Successfull',
+                            showClass: {
+                                popup: 'animate__animated animate__fadeInDown'
+                            },
+                            hideClass: {
+                                popup: 'animate__animated animate__fadeOutUp'
+                            }
+                        })
+                    }
+                })
+        }
     };
 
     return (
@@ -75,6 +124,9 @@ const Payment = ({ price }) => {
                     <button className="btn bg-orange-500 w-14 h-10 hover:bg-orange-800 text-white border-none flex mt-10" type="submit" disabled={!stripe || !clientSecret || processing}>
                         Pay
                     </button>
+                    {
+                        transactionId && <p className="text-green-600">Transaction Completed!! TransactionId: {transactionId}</p>
+                    }
                 </form>
             </div>
         </div>
