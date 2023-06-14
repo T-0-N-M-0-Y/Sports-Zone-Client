@@ -4,7 +4,9 @@ import usePaymentInfo from "../../Hooks/usePaymentInfo";
 const PaymentHistory = () => {
 
     const [payments] = usePaymentInfo()
-    console.log(payments);
+
+    const paymentSort = payments.sort((a, b) => b.date - a.date);
+    console.log(paymentSort);
 
     return (
         <div className="w-full">
@@ -25,7 +27,7 @@ const PaymentHistory = () => {
 
                         <tbody>
                             {
-                                payments.map((payment, index) =>
+                                paymentSort.map((payment, index) =>
                                     <tr key={payment._id}>
                                         <th>
                                             {index + 1}
@@ -43,10 +45,10 @@ const PaymentHistory = () => {
                                             <div>$ {payment.price}</div>
                                         </td>
                                         <td>
-                                            $ {payment.transactionId}
+                                            {payment.transactionId}
                                         </td>
                                         <td>
-                                            $ {payment.date}
+                                            {payment.date}
                                         </td>
                                     </tr>
                                 )
