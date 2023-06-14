@@ -9,7 +9,6 @@ const PrivateRoute = ({ children }) => {
     const location = useLocation();
 
     if (loading) {
-        if (loading)
             return (
                 <>
                     <span className="flex justify-center"><FaSpinner className='animate-spin text-4xl my-20'></FaSpinner></span>

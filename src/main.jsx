@@ -15,7 +15,6 @@ import SignUp from './Components/LoginAndSignUpPage/SignUp.jsx';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import InstructorsDetails from './Components/AllInstructors/InstructorsDetails.jsx';
 import AllClasses from './AllClasses/AllClasses.jsx';
-import PrivateRoute from './Components/Routes/PrivateRoute.jsx';
 import Dashboard from './Components/Dashboard/Dashboard.jsx';
 import SelectedClass from './Components/Dashboard/SelectedClass.jsx';
 import EnrolledClass from './Components/Dashboard/EnrolledClass.jsx';
@@ -44,7 +43,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/classes",
-        element: <AllClasses></AllClasses>,
+        element: <AllClasses></AllClasses>
       },
       {
         path: "/instructors",
@@ -60,9 +59,10 @@ const router = createBrowserRouter([
       },
     ],
   },
+  
   {
     path: "/dashboard",
-    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+    element: <Dashboard></Dashboard>,
     children: [
       {
         path: "dashhome",
