@@ -28,6 +28,7 @@ import MyClasses from './Components/Dashboard/Instructors/MyClasses.jsx';
 import PrivateInstructorRoutes from './Components/Routes/PrivateInstructorRoute.jsx';
 import Checkout from './Components/Dashboard/Checkout.jsx';
 import PaymentHistory from './Components/Dashboard/PaymentHistory.jsx';
+import ErrorPage from './Components/Error/ErrorPage.jsx';
 
 const queryClient = new QueryClient()
 
@@ -35,7 +36,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    // errorElement: <ErrorPage />,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
