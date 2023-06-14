@@ -3,6 +3,7 @@ import { FaAward, FaHome, FaPaypal, FaRegGem, FaUniversity, FaUserGraduate, FaUs
 import { NavLink, Outlet } from "react-router-dom";
 import useVerifyInstructor from "../../Hooks/useVerifyInstructor";
 import useVerifyAdmin from "../../Hooks/useVerifyAdmin";
+import { motion } from "framer-motion"
 
 
 const Dashboard = () => {
@@ -33,32 +34,81 @@ const Dashboard = () => {
                             {
                                 checkAdmin ?
                                     <>
-                                        <li><NavLink to={'/dashboard/manageclasses'}><FaRegGem></FaRegGem> Manage Classes</NavLink></li>
-                                        <li><NavLink to={'/dashboard/manageusers'}><FaUsers></FaUsers> Manage Users</NavLink></li>
+                                        <motion.div className="box"
+                                            whileHover={{ scale: 1.1 }}
+                                            whileTap={{ scale: .9 }}
+                                            transition={{ type: "spring", stiffness: 400, damping: 17 }} >
+                                            <li><NavLink to={'/dashboard/manageclasses'}><FaRegGem></FaRegGem> Manage Classes</NavLink></li>
+                                        </motion.div>
+                                        <motion.div className="box"
+                                            whileHover={{ scale: 1.1 }}
+                                            whileTap={{ scale: .9 }}
+                                            transition={{ type: "spring", stiffness: 400, damping: 17 }} >
+                                            <li><NavLink to={'/dashboard/manageusers'}><FaUsers></FaUsers> Manage Users</NavLink></li>
+                                        </motion.div>
                                     </>
                                     :
                                     <>
                                         {
                                             checkInstructor ?
                                                 <>
-                                                    <li><NavLink to={'/dashboard/addclass'}><FaAward></FaAward> Add Class</NavLink></li>
-                                                    <li><NavLink to={'/dashboard/myclasses'}><FaUserGraduate></FaUserGraduate> My Classes</NavLink></li>
+                                                    <motion.div className="box"
+                                                        whileHover={{ scale: 1.1 }}
+                                                        whileTap={{ scale: .9 }}
+                                                        transition={{ type: "spring", stiffness: 400, damping: 17 }} >
+                                                        <li><NavLink to={'/dashboard/addclass'}><FaAward></FaAward> Add Class</NavLink></li>
+                                                    </motion.div>
+                                                    <motion.div className="box"
+                                                        whileHover={{ scale: 1.1 }}
+                                                        whileTap={{ scale: .9 }}
+                                                        transition={{ type: "spring", stiffness: 400, damping: 17 }} >
+                                                        <li><NavLink to={'/dashboard/myclasses'}><FaUserGraduate></FaUserGraduate> My Classes</NavLink></li>
+                                                    </motion.div>
                                                 </>
                                                 :
                                                 <>
-                                                    <li><NavLink to={'/dashboard/selectedclass'}><FaAward></FaAward> Selected Classes</NavLink></li>
-                                                    <li><NavLink to={'/dashboard/enrolledclass'}><FaUserGraduate></FaUserGraduate> Enrolled Classes</NavLink></li>
-                                                    <li><NavLink to={'/dashboard/paymenthistory'}><FaPaypal></FaPaypal> Payment History</NavLink></li>
+                                                    <motion.div className="box"
+                                                        whileHover={{ scale: 1.1 }}
+                                                        whileTap={{ scale: .9 }}
+                                                        transition={{ type: "spring", stiffness: 400, damping: 17 }} >
+                                                        <li><NavLink to={'/dashboard/selectedclass'}><FaAward></FaAward> Selected Classes</NavLink></li>
+                                                    </motion.div>
+                                                    <motion.div className="box"
+                                                        whileHover={{ scale: 1.1 }}
+                                                        whileTap={{ scale: .9 }}
+                                                        transition={{ type: "spring", stiffness: 400, damping: 17 }} >
+                                                        <li><NavLink to={'/dashboard/enrolledclass'}><FaUserGraduate></FaUserGraduate> Enrolled Classes</NavLink></li>
+                                                    </motion.div>
+                                                    <motion.div className="box"
+                                                        whileHover={{ scale: 1.1 }}
+                                                        whileTap={{ scale: .9 }}
+                                                        transition={{ type: "spring", stiffness: 400, damping: 17 }} >
+                                                        <li><NavLink to={'/dashboard/paymenthistory'}><FaPaypal></FaPaypal> Payment History</NavLink></li>
+                                                    </motion.div>
                                                 </>
                                         }
                                     </>
                             }
                             <div className="divider"></div>
 
-                            <li><NavLink to={'/'}
-                            ><FaHome></FaHome> Home</NavLink></li>
-                            <li><NavLink to={'/classes'}><FaUniversity></FaUniversity> Classes</NavLink></li>
-                            <li><NavLink to={'/instructors'}><FaUserSecret></FaUserSecret> Instructors</NavLink></li>
+                            <motion.div className="box"
+                                whileHover={{ scale: 1.1 }}
+                                whileTap={{ scale: .9 }}
+                                transition={{ type: "spring", stiffness: 400, damping: 17 }} >
+                                <li><NavLink to={'/'}><FaHome></FaHome> Home</NavLink></li>
+                            </motion.div>
+                            <motion.div className="box"
+                                whileHover={{ scale: 1.1 }}
+                                whileTap={{ scale: .9 }}
+                                transition={{ type: "spring", stiffness: 400, damping: 17 }} >
+                                <li><NavLink to={'/classes'}><FaUniversity></FaUniversity> Classes</NavLink></li>
+                            </motion.div>
+                            <motion.div className="box"
+                                whileHover={{ scale: 1.1 }}
+                                whileTap={{ scale: .9 }}
+                                transition={{ type: "spring", stiffness: 400, damping: 17 }} >
+                                <li><NavLink to={'/instructors'}><FaUserSecret></FaUserSecret> Instructors</NavLink></li>
+                            </motion.div>
                         </ul>
 
                     </div>
