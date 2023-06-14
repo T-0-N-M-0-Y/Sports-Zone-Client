@@ -49,7 +49,6 @@ const MyClasses = () => {
                                         </td>
                                         <td>{addedClass.numStudents}</td>
 
-                                        <td>{addedClass.numStudents}</td>
                                         <th>
                                             {
                                                 !addedClass.status ?
