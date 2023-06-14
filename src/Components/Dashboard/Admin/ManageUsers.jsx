@@ -16,7 +16,7 @@ const ManageUsers = () => {
 
 
     const handlePromoteAdmin = user => {
-        fetch(`http://localhost:5000/users/admin/${user._id}`, {
+        fetch(`https://assignment-12-sports-academies-server-site-t-0-n-m-0-y.vercel.app/users/admin/${user._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
@@ -35,7 +35,7 @@ const ManageUsers = () => {
     }
 
     const handlePromoteInstructor = user => {
-        fetch(`http://localhost:5000/users/instructor/${user._id}`, {
+        fetch(`https://assignment-12-sports-academies-server-site-t-0-n-m-0-y.vercel.app/users/instructor/${user._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())

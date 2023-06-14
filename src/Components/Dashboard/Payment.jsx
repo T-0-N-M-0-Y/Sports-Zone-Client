@@ -3,6 +3,7 @@ import useAxios from "../../Hooks/useAxios";
 import { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 const Payment = ({ selectedclasses, price }) => {
     const stripe = useStripe();
@@ -12,6 +13,7 @@ const Payment = ({ selectedclasses, price }) => {
     const [processing, setProcessing] = useState(false)
     const [transactionId, setTransactionId] = useState();
     const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (price > 0) {
@@ -97,6 +99,7 @@ const Payment = ({ selectedclasses, price }) => {
                             }
                         })
                     }
+                    navigate('/dashboard/enrolledclass')
                 })
         }
     };

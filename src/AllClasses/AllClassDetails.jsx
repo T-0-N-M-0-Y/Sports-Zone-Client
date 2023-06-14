@@ -21,7 +21,7 @@ const AllClassDetails = ({ allclass }) => {
         console.log(allclass);
         if (user && user.email) {
             const selectClass = { classId: _id, name, instructor, image, price, email: user.email }
-            fetch('http://localhost:5000/selectedclass', {
+            fetch('https://assignment-12-sports-academies-server-site-t-0-n-m-0-y.vercel.app/selectedclass', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

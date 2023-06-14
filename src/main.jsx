@@ -27,6 +27,7 @@ import AddClass from './Components/Dashboard/Instructors/AddClass.jsx';
 import MyClasses from './Components/Dashboard/Instructors/MyClasses.jsx';
 import PrivateInstructorRoutes from './Components/Routes/PrivateInstructorRoute.jsx';
 import Checkout from './Components/Dashboard/Checkout.jsx';
+import PaymentHistory from './Components/Dashboard/PaymentHistory.jsx';
 
 const queryClient = new QueryClient()
 
@@ -96,6 +97,10 @@ const router = createBrowserRouter([
       {
         path: "payment",
         element: <Checkout></Checkout>
+      },
+      {
+        path: "paymenthistory",
+        element: <PaymentHistory></PaymentHistory>
       },
     ]
   }

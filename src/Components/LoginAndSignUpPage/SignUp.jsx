@@ -27,7 +27,7 @@ const SignUp = () => {
 
                         const userSaved = { name: data.name, email: data.email }
 
-                        fetch('http://localhost:5000/users', {
+                        fetch('https://assignment-12-sports-academies-server-site-t-0-n-m-0-y.vercel.app/users', {
                             method: 'POST',
                             headers: {
                                 'content-type': 'application/json'

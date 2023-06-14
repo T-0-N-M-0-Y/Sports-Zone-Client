@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const AXIOS = axios.create({
-    baseURL: 'http://localhost:5000'
+    baseURL: 'https://assignment-12-sports-academies-server-site-t-0-n-m-0-y.vercel.app'
 });
 
 const useAxios = () => {
