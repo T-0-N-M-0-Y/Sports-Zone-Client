@@ -1,11 +1,11 @@
 import { Helmet } from "react-helmet-async";
-import useClasses from "../../../Hooks/useClasses";
 import Swal from "sweetalert2";
 import useAxios from "../../../Hooks/useAxios";
+import useManageClass from "../../../Hooks/useManageClass";
 
 const ManageClasses = () => {
 
-    const [classes, refetch] = useClasses();
+    const [manageClasses, refetch] = useManageClass();
     const [AXIOS] = useAxios()
 
     const handleApproveClass = classs => {
@@ -18,7 +18,7 @@ const ManageClasses = () => {
             confirmButtonText: 'Yes!'
         }).then((result) => {
             if (result.isConfirmed) {
-                AXIOS.patch(`/classes/pending/${classs._id}`)
+                AXIOS.patch(`/manageClasses/pending/${classs._id}`)
                     .then(data => {
                         if (data.data.modifiedCount > 0) {
                             refetch();
@@ -43,7 +43,7 @@ const ManageClasses = () => {
             confirmButtonText: 'Yes!'
         }).then((result) => {
             if (result.isConfirmed) {
-                AXIOS.patch(`/classes/denied/${classs._id}`)
+                AXIOS.patch(`/manageClasses/denied/${classs._id}`)
                     .then(data => {
                         if (data.data.modifiedCount > 0) {
                             refetch();
@@ -82,7 +82,7 @@ const ManageClasses = () => {
 
                         <tbody>
                             {
-                                classes.map((classs) =>
+                                manageClasses.map((classs) =>
                                     <tr key={classs._id}>
                                         <td>
                                             <div className="avatar">

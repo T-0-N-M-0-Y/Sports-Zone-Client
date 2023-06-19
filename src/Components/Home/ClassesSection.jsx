@@ -1,12 +1,12 @@
-import useClasses from "../../Hooks/useClasses";
+import usePopularClasses from "../../Hooks/usePopularClasses";
 import ShowClasses from "./ShowClasses";
 import { motion } from "framer-motion"
 
 const ClassesSection = () => {
 
-    const [classes] = useClasses();
+    const [popularClasses] = usePopularClasses();
 
-    const sortClasses = classes.sort((a, b) => b.numStudents - a.numStudents);
+    // const sortClasses = classes.sort((a, b) => b.numStudents - a.numStudents);
 
     return (
         <div>
@@ -28,7 +28,7 @@ const ClassesSection = () => {
             >
                 <div className="md:grid grid-cols-6 gap-1">
                     {
-                        sortClasses.slice(0, 6).map(sortClass => <ShowClasses
+                        popularClasses.slice(0, 6).map(sortClass => <ShowClasses
                             key={sortClass._id}
                             sortClass={sortClass}
                         ></ShowClasses>)
