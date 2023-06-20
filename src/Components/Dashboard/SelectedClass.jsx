@@ -3,11 +3,13 @@ import useSelectedClasses from "../../Hooks/useSelectedClasses";
 import { Link } from "react-router-dom";
 import { FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
-import {motion} from "framer-motion"
+import { motion } from "framer-motion"
 
 const SelectedClass = () => {
 
     const [selectedclasses, refetch] = useSelectedClasses();
+
+    const totalPrice = selectedclasses.reduce((sum, item) => item.price + sum, 0)
 
     const handleDeleteClass = selectedclass => {
 
@@ -44,15 +46,10 @@ const SelectedClass = () => {
             <Helmet>
                 <title>Sports Zone | Selected Class</title>
             </Helmet>
-            <div className="flex justify-around items-center mb-5">
+            <div className="flex justify-between items-center mb-5">
                 <h1 className="text-xl font-semibold">Selected Classes: {selectedclasses.length}</h1>
 
-                <motion.div className="box"
-                    whileHover={{ scale: 1.3 }}
-                    whileTap={{ scale: .9 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 17 }} >
-                    <Link to={'/dashboard/payment'}><button className="btn bg-orange-500 w-14 h-10 text-white hover:bg-orange-800 border-none">Pay</button></Link>
-                </motion.div>
+                <h1 className="text-xl font-semibold">Total Price: $ {totalPrice}</h1>
             </div>
             <div>
                 <div className="overflow-x-auto w-full">
@@ -95,6 +92,12 @@ const SelectedClass = () => {
                     </table>
                 </div>
             </div>
+            <motion.div className="box"
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: .9 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }} >
+                <Link to={'/dashboard/payment'}><button disabled={selectedclasses.length === 0} className="btn bg-orange-500 w-full h-10 mt-10 text-white hover:bg-orange-800 border-none">Pay</button></Link>
+            </motion.div>
         </div>
     );
 };

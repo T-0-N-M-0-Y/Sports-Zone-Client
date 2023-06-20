@@ -72,9 +72,15 @@ const Payment = ({ selectedclasses, price }) => {
             console.log(cofirmError);
         }
         console.log(paymentIntent);
+
         setProcessing(false)
+
         if (paymentIntent.status === 'succeeded') {
+
             setTransactionId(paymentMethod.id)
+
+            const classId = selectedclasses.map(selectedClass => selectedClass.classId);
+
             const payment = {
                 email: user?.email,
                 transactionId: paymentIntent.id,
@@ -83,23 +89,28 @@ const Payment = ({ selectedclasses, price }) => {
                 quantity: selectedclasses.length,
                 status: 'Payment Confirmed! Service Pending....',
                 class: selectedclasses.map(selectedClass => selectedClass._id),
-                classId: selectedclasses.map(selectedClass => selectedClass.classId),
+                classId,
                 className: selectedclasses.map(selectedClass => selectedClass.name),
                 classImage: selectedclasses.map(selectedClass => selectedClass.image)
             }
 
             AXIOS.post('/payment', payment)
                 .then(res => {
-                    if (res.data.result.insertedId) {
-                        Swal.fire({
-                            title: 'Payment Successfull',
-                            showClass: {
-                                popup: 'animate__animated animate__fadeInDown'
-                            },
-                            hideClass: {
-                                popup: 'animate__animated animate__fadeOutUp'
-                            }
-                        })
+                    if (res.data.result.insertedId && res.data.deleteResult) {
+                        AXIOS.patch('/classes-update-enroll', classId)
+                            .then(res => {
+                                if (res.data.modifiedCount > 0) {
+                                    Swal.fire({
+                                        title: 'Payment Successfull',
+                                        showClass: {
+                                            popup: 'animate__animated animate__fadeInDown'
+                                        },
+                                        hideClass: {
+                                            popup: 'animate__animated animate__fadeOutUp'
+                                        }
+                                    })
+                                }
+                            })
                     }
                     navigate('/dashboard/enrolledclass')
                 })

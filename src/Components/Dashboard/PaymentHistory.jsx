@@ -25,10 +25,11 @@ const PaymentHistory = () => {
                                 payments.map((payment) =>
                                     <tr key={payment._id}>
                                         <td>
-                                            <div>{payment.className[0]}</div>
-                                            <div>{payment.className[1]}</div>
-                                            <div>{payment.className[2]}</div>
-                                            <div>{payment.className[3]}</div>
+                                            <div>{payment.className.map((classsName, index) =>
+                                                <div key={index}>
+                                                    {classsName}
+                                                </div>
+                                            )}</div>
                                         </td>
                                         <td>
                                             <div>$ {payment.price}</div>

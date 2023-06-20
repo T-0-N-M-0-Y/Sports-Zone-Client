@@ -8,14 +8,14 @@ const EnrolledClass = () => {
     console.log(paymentInfo);
 
     return (
-        <div className="w-full">
+        <div className="w-full my-20">
             <Helmet>
                 <title>Sports Zone | Enrolled Class</title>
             </Helmet>
 
             {
                 paymentInfo.map((item) => (
-                    <div key={item._id} className=' grid grid-cols-2 mx-24 mb-4'>
+                    <div key={item._id} className=' grid grid-cols-2 gap-5 mx-44 mb-4'>
                         {item.className.map((className, index) => (
                             <div key={index} className="card w-96 bg-base-200 shadow-xl">
                                 <figure className='relative h-52'>
@@ -31,20 +31,6 @@ const EnrolledClass = () => {
                     </div>
                 ))
             }
-
-            {/* {
-                paymentInfo.map(payment =>
-                    <div key={payment._id} className="card w-96 bg-base-100 shadow-xl">
-                        <figure><img src={payment.classImage[0]} alt="Shoes" /></figure>
-                        <div className="card-body">
-                            <h2 className="card-title">
-                                {payment.className[0]}
-                            </h2>
-                            <p>Enrolled Date: {formatDate(payment.date)}</p>
-                        </div>
-                    </div>
-                )
-            } */}
         </div>
     );
 };
