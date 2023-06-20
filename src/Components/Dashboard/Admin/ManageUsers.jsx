@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { FaUserSecret, FaUserShield, FaUsers } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxios from "../../../Hooks/useAxios";
+import { motion } from "framer-motion"
 
 const ManageUsers = () => {
 
@@ -86,7 +87,12 @@ const ManageUsers = () => {
                                                 user.role === 'admin' ?
                                                     <p className="text-center flex justify-evenly items-center"><FaUserShield></FaUserShield> Admin</p>
                                                     :
-                                                    <button onClick={() => handlePromoteAdmin(user)} className="btn bg-orange-500 hover:bg-orange-800 text-white border-none"><FaUsers></FaUsers></button>
+                                                    <motion.div className="box"
+                                                        whileHover={{ scale: 1.2 }}
+                                                        whileTap={{ scale: .9 }}
+                                                        transition={{ type: "spring", stiffness: 400, damping: 17 }} >
+                                                        <button onClick={() => handlePromoteAdmin(user)} className="btn bg-gradient-to-r from-slate-800 to-orange-800 text-white border-none"><FaUsers></FaUsers></button>
+                                                    </motion.div>
                                             }
                                         </td>
                                         <td>
@@ -94,7 +100,12 @@ const ManageUsers = () => {
                                                 user.role === 'instructor' ?
                                                     <p className="text-center flex justify-evenly items-center"><FaUserSecret></FaUserSecret>Instructor</p>
                                                     :
-                                                    <button onClick={() => handlePromoteInstructor(user)} className="btn bg-orange-500 hover:bg-orange-800 text-white border-none"><FaUsers></FaUsers></button>
+                                                    <motion.div className="box"
+                                                        whileHover={{ scale: 1.2 }}
+                                                        whileTap={{ scale: .9 }}
+                                                        transition={{ type: "spring", stiffness: 400, damping: 17 }} >
+                                                        <button onClick={() => handlePromoteInstructor(user)} className="btn bg-gradient-to-r from-slate-800 to-orange-800 text-white border-none"><FaUsers></FaUsers></button>
+                                                    </motion.div>
                                             }
                                         </td>
                                     </tr>

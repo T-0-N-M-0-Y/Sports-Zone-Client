@@ -5,7 +5,7 @@ const ContactSection = () => {
 
     return (
         <div>
-            <div className="hero w-full h-full bg-orange-500 text-white py-10 md:my-20">
+            <div className="hero w-full h-full bg-gradient-to-r from-slate-800 to-orange-800 text-white py-10 md:my-20">
                 <div className="hero-content">
                     <div className="max-w-2xl">
                         <h1 className="md:text-5xl text-2xl font-bold">Contact Us</h1>

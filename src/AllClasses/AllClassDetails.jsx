@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext} from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import useSelectedClasses from "../Hooks/useSelectedClasses";
 import Swal from "sweetalert2";
@@ -69,14 +69,6 @@ const AllClassDetails = ({ allclass }) => {
     const [checkAdmin] = useVerifyAdmin();
     const [checkInstructor] = useVerifyInstructor();
 
-    const [disabled, setDisabled] = useState(false);
-
-    useEffect(() => {
-        if (availableSeats === 0 || checkAdmin || checkInstructor) {
-            setDisabled(true)
-        }
-    }, [availableSeats, checkAdmin, checkInstructor])
-
     return (
         <div className="card bg-base-200 mt-5">
             <div className="card-body">
@@ -92,7 +84,7 @@ const AllClassDetails = ({ allclass }) => {
                     whileHover={{ scale: 1.3 }}
                     whileTap={{ scale: .9 }}
                     transition={{ type: "spring", stiffness: 400, damping: 17 }} >
-                    <button onClick={() => handleSelectedClasses(allclass)} disabled={disabled} className="btn bg-orange-500 hover:bg-orange-800 text-white">Select Class</button>
+                    <button onClick={() => handleSelectedClasses(allclass)} disabled={availableSeats === 0 || checkAdmin || checkInstructor} className="btn bg-gradient-to-r from-slate-800 to-orange-800 text-white">Select Class</button>
                 </motion.div>
             </div>
         </div>

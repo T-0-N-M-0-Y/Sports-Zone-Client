@@ -18,7 +18,8 @@ const AllInstructors = ({ instructor }) => {
                         whileHover={{ scale: 1.3 }}
                         whileTap={{ scale: .9 }}
                         transition={{ type: "spring", stiffness: 400, damping: 17 }} >
-                        <button className="btn bg-orange-500 hover:bg-orange-800 text-white">See CLasses</button>
+                        <button className="btn bg-gradient-to-r from-slate-800 to-orange-800 text-white
+">See CLasses</button>
                     </motion.div>
                 </div>
             </div>

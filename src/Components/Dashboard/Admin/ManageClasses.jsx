@@ -108,7 +108,7 @@ const ManageClasses = () => {
                                                     <><span>Approved</span></>
                                                     :
                                                     <>
-                                                        <button onClick={() => handleApproveClass(classs)} className="btn btn-xs bg-orange-500 hover:bg-orange-800 text-white border-none" disabled={classs.status === 'Denied'}>Pending</button>
+                                                        <button onClick={() => handleApproveClass(classs)} className="btn btn-xs bg-orange-800 hover:bg-gradient-to-r from-slate-800 to-orange-800 text-white border-none" disabled={classs.status === 'Denied'}>Pending</button>
                                                     </>
                                             }
                                             {
@@ -117,10 +117,10 @@ const ManageClasses = () => {
                                                     <><span className="mx-2">Denied</span></>
                                                     :
                                                     <>
-                                                        <button onClick={() => handleDenyClass(classs)} className="btn btn-xs bg-orange-500 hover:bg-orange-800 text-white border-none mx-2 " disabled={classs.status === 'Approved'}>Deny</button>
+                                                        <button onClick={() => handleDenyClass(classs)} className="btn btn-xs bg-orange-800 hover:bg-gradient-to-r from-slate-800 to-orange-800 text-white border-none mx-2 " disabled={classs.status === 'Approved'}>Deny</button>
                                                     </>
                                             }
-                                            <label htmlFor="my_modal_6" className="btn btn-xs bg-orange-500 hover:bg-orange-800 text-white border-none" disabled={classs.status === 'Approved'}>Feedback</label>
+                                            <label htmlFor="my_modal_6" className="btn btn-xs bg-orange-800 hover:bg-gradient-to-r from-slate-800 to-orange-800 text-white border-none" disabled={classs.status === 'Approved'}>Feedback</label>
                                             <input type="checkbox" id="my_modal_6" className="modal-toggle" />
                                             <div className="modal">
                                                 <div className="modal-box">

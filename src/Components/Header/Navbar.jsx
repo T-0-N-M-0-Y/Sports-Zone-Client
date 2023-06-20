@@ -21,25 +21,25 @@ const Navbar = () => {
                 whileHover={{ scale: 1.3 }}
                 whileTap={{ scale: .9 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }} >
-                <Link to={'/'}><li className="hover:bg-orange-800 p-3 rounded-lg mr-5">HOME</li></Link>
+                <Link to={'/'}><li className="hover:bg-gradient-to-r from-slate-800 to-orange-800 text-white  p-3 rounded-lg mr-5">HOME</li></Link>
             </motion.div>
             <motion.div className="box"
                 whileHover={{ scale: 1.3 }}
                 whileTap={{ scale: .9 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }} >
-                <Link to={'/instructors'}><li className="hover:bg-orange-800 p-3 rounded-lg mr-5">INSTRUCTORS</li></Link>
+                <Link to={'/instructors'}><li className="hover:bg-gradient-to-r from-slate-800 to-orange-800 text-white  p-3 rounded-lg mr-5">INSTRUCTORS</li></Link>
             </motion.div>
             <motion.div className="box"
                 whileHover={{ scale: 1.3 }}
                 whileTap={{ scale: .9 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }} >
-                <Link to={'/classes'}><li className="hover:bg-orange-800 p-3 rounded-lg mr-5">CLASSES</li></Link>
+                <Link to={'/classes'}><li className="hover:bg-gradient-to-r from-slate-800 to-orange-800 text-white  p-3 rounded-lg mr-5">CLASSES</li></Link>
             </motion.div>
             <motion.div className="box"
                 whileHover={{ scale: 1.3 }}
                 whileTap={{ scale: .9 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }} >
-                <Link to={'/dashboard/dashhome'}><li className="hover:bg-orange-800 p-3 rounded-lg">DASHBOARD + {selectedclasses?.length || ' '}</li></Link>
+                <Link to={'/dashboard/dashhome'}><li className=" hover:bg-gradient-to-r from-slate-800 to-orange-800 text-white p-3 rounded-lg">DASHBOARD + {selectedclasses?.length || ' '}</li></Link>
             </motion.div>
         </>
 
@@ -71,14 +71,14 @@ const Navbar = () => {
                                 whileHover={{ scale: 1.3 }}
                                 whileTap={{ scale: .9 }}
                                 transition={{ type: "spring", stiffness: 400, damping: 17 }} >
-                                <Link onClick={handleSignOut} className="mr-2 bg-base-800 p-2 lg:p-3 text-white rounded-lg hover:bg-orange-800"> <button>LOGOUT</button></Link>
+                                <Link onClick={handleSignOut} className="mr-2 bg-base-800 p-2 lg:p-3 rounded-lg hover:bg-gradient-to-r from-slate-800 to-orange-800 text-white "> <button>LOGOUT</button></Link>
                             </motion.div>
                             :
                             <motion.div className="box"
                                 whileHover={{ scale: 1.3 }}
                                 whileTap={{ scale: .9 }}
                                 transition={{ type: "spring", stiffness: 400, damping: 17 }} >
-                                <Link className="mr-2 bg-base-800 p-2 lg:p-3 text-white rounded-lg hover:bg-orange-800" to={"/login"}> <button>LOGIN</button></Link>
+                                <Link className="mr-2 bg-base-800 p-2 lg:p-3  rounded-lg hover:bg-gradient-to-r from-slate-800 to-orange-800 text-white " to={"/login"}> <button>LOGIN</button></Link>
                             </motion.div>
                     }
                     {
@@ -91,7 +91,7 @@ const Navbar = () => {
                                 whileHover={{ scale: 1.3 }}
                                 whileTap={{ scale: .9 }}
                                 transition={{ type: "spring", stiffness: 400, damping: 17 }} >
-                                <Link className="mr-2 bg-base-800 p-2 lg:p-3 text-white rounded-lg hover:bg-orange-800" to={"/signup"}> <button>SIGN UP</button></Link>
+                                <Link className="mr-2 bg-base-800 p-2 lg:p-3 text-white rounded-lg hover:bg-gradient-to-r from-slate-800 to-orange-800" to={"/signup"}> <button>SIGN UP</button></Link>
                             </motion.div>
                     }
                 </div>

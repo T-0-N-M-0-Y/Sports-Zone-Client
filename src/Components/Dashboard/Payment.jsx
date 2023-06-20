@@ -138,10 +138,10 @@ const Payment = ({ selectedclasses, price }) => {
                         }}
                     />
                     <motion.div className="box"
-                        whileHover={{ scale: .9 }}
+                        whileHover={{ scale: 1 }}
                         whileTap={{ scale: .9 }}
                         transition={{ type: "spring", stiffness: 400, damping: 17 }} >
-                        <button className="btn bg-orange-500 w-14 h-10 hover:bg-orange-800 text-white border-none flex mt-10" type="submit" disabled={!stripe || !clientSecret || processing}>
+                        <button className="btn bg-gradient-to-r from-slate-800 to-orange-800 text-white border-none flex mt-10" type="submit" disabled={!stripe || !clientSecret || processing}>
                             Pay
                         </button>
                     </motion.div>

@@ -83,7 +83,12 @@ const SelectedClass = () => {
                                         </td>
                                         <td>$ {selectedclass.price}</td>
                                         <th>
-                                            <button onClick={() => handleDeleteClass(selectedclass)} className="btn bg-orange-500 hover:bg-orange-800 text-white border-none"><FaTrash></FaTrash></button>
+                                            <motion.div className="box"
+                                                whileHover={{ scale: 1.1 }}
+                                                whileTap={{ scale: .9 }}
+                                                transition={{ type: "spring", stiffness: 400, damping: 17 }} >
+                                                <button onClick={() => handleDeleteClass(selectedclass)} className="btn bg-gradient-to-r from-slate-800 to-orange-800 text-white border-none"><FaTrash></FaTrash></button>
+                                            </motion.div>
                                         </th>
                                     </tr>
                                 )
@@ -96,7 +101,7 @@ const SelectedClass = () => {
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: .9 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }} >
-                <Link to={'/dashboard/payment'}><button disabled={selectedclasses.length === 0} className="btn bg-orange-500 w-full h-10 mt-10 text-white hover:bg-orange-800 border-none">Pay</button></Link>
+                <Link to={'/dashboard/payment'}><button disabled={selectedclasses.length === 0} className="btn w-full h-10 mt-10 bg-gradient-to-r from-slate-800 to-orange-800 text-white border-none">Pay</button></Link>
             </motion.div>
         </div>
     );

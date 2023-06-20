@@ -111,9 +111,9 @@ const AddClass = () => {
                 </div>
                 <motion.div className="box"
                     whileHover={{ scale: .9 }}
-                    whileTap={{ scale: 1.1 }}
+                    whileTap={{ scale: 1 }}
                     transition={{ type: "spring", stiffness: 400, damping: 17 }} >
-                    <input className="h-10 w-full rounded-lg bg-orange-500 hover:bg-orange-800 text-white mx-auto" type="submit" value="Add Class" />
+                    <input className="h-10 w-full rounded-lg bg-gradient-to-r from-slate-800 to-orange-800 text-white mx-auto" type="submit" value="Add Class" />
                 </motion.div>
             </form>
         </div>
