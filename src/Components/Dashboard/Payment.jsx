@@ -84,7 +84,8 @@ const Payment = ({ selectedclasses, price }) => {
                 status: 'Payment Confirmed! Service Pending....',
                 class: selectedclasses.map(selectedClass => selectedClass._id),
                 classId: selectedclasses.map(selectedClass => selectedClass.classId),
-                className: selectedclasses.map(selectedClass => selectedClass.name)
+                className: selectedclasses.map(selectedClass => selectedClass.name),
+                classImage: selectedclasses.map(selectedClass => selectedClass.image)
             }
 
             AXIOS.post('/payment', payment)

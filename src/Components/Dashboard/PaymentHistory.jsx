@@ -1,12 +1,9 @@
-import usePaymentInfo from "../../Hooks/usePaymentInfo";
-
+import formatDate from "../../DateFormat/formatDate";
+import usePayments from "../../Hooks/usePayments";
 
 const PaymentHistory = () => {
 
-    const [payments] = usePaymentInfo()
-
-    const paymentSort = payments.sort((a, b) => b.date - a.date);
-    console.log(paymentSort);
+    const [payments] = usePayments()
 
     return (
         <div className="w-full">
@@ -17,7 +14,6 @@ const PaymentHistory = () => {
                         <thead>
                             <tr>
                                 <th>Classes</th>
-                                <th>Email</th>
                                 <th>Amount</th>
                                 <th>transactionId</th>
                                 <th>date</th>
@@ -26,7 +22,7 @@ const PaymentHistory = () => {
 
                         <tbody>
                             {
-                                paymentSort.map((payment) =>
+                                payments.map((payment) =>
                                     <tr key={payment._id}>
                                         <td>
                                             <div>{payment.className[0]}</div>
@@ -35,16 +31,13 @@ const PaymentHistory = () => {
                                             <div>{payment.className[3]}</div>
                                         </td>
                                         <td>
-                                            <div>{payment.email}</div>
-                                        </td>
-                                        <td>
                                             <div>$ {payment.price}</div>
                                         </td>
                                         <td>
                                             {payment.transactionId}
                                         </td>
                                         <td>
-                                            {payment.date}
+                                            {formatDate(payment.date)}
                                         </td>
                                     </tr>
                                 )

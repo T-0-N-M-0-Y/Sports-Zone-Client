@@ -4,8 +4,9 @@ import ShowInstructors from "./ShowInstructors";
 const Instructors = () => {
 
     const [instructors] = useInstructors()
-    const sortedInstructors = instructors.sort((a, b) => b.numStudents - a.numStudents);
-    console.log(sortedInstructors);
+
+    // const sortedInstructors = instructors.sort((a, b) => b.numStudents - a.numStudents);
+    // console.log(sortedInstructors);
 
     return (
         <div className="text-center">
@@ -13,7 +14,7 @@ const Instructors = () => {
 
             <div className="md:grid grid-cols-3 gap-5">
                 {
-                    sortedInstructors.slice(0, 6).map(instructor => <ShowInstructors
+                    instructors.slice(0, 6).map(instructor => <ShowInstructors
                         key={instructor._id}
                         instructor={instructor}
                     ></ShowInstructors>)
